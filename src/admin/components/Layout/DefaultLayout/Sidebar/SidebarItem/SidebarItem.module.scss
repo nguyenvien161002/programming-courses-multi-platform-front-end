@@ -1,0 +1,41 @@
+.nav-item {
+    padding: 0 16px;
+    transition-duration: 0.25s;
+    transition-property: background;
+    border-radius: 6px;
+    margin: 2px 0;
+
+    &:hover {
+        background: var(--admin-bg-hover-nav-item);
+    }
+
+    .nav-link-sidebar {
+        display: flex;
+        padding: 14px 0;
+
+        p {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--admin-color-word-primary);
+        }
+
+        .wrapper-icon-nav {
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            .icon-nav-item {
+                font-size: 18px;
+                margin-right: 14px;
+                color: var(--admin-color-word-primary);
+            }
+        }
+        
+    }
+    
+}
+
+.nav-item.active {
+    background: var(--admin-bg-hover-nav-item);
+}

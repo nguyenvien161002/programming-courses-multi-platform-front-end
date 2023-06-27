@@ -1,0 +1,47 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #f1c40f;
+    --admin-bg-hover-nav-item: rgba(255, 255, 255, 0.4);
+    --admin-color-word-primary: #423a8e;
+}
+
+* {
+    padding: 0;
+    margin: 0; 
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #888;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
