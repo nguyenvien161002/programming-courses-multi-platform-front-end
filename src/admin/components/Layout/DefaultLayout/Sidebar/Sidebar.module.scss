@@ -1,43 +1,72 @@
 .sidebar {
-    min-height: 100vh;
-    background: linear-gradient(to bottom, var(--primary), rgba(240, 81, 35, 1));
-    font-family: "Rubik", sans-serif;
+    width: var(--admin-sidebar-weight);
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
     padding: 0;
-    width: 260px;
-    z-index: 11;
-    transition: width 0.25s ease, background 0.25s ease;
+    overflow-y: scroll;
+    font-family: "Rubik", sans-serif;
+    transition: all var(--admin-sidebar-time-transition);
+    transition: width var(--admin-sidebar-time-transition), background var(--admin-sidebar-time-transition);
+    -webkit-transition: width var(--admin-sidebar-time-transition), background var(--admin-sidebar-time-transition);
+    -moz-transition: width var(--admin-sidebar-time-transition), background var(--admin-sidebar-time-transition);
+    -ms-transition: width var(--admin-sidebar-time-transition), background var(--admin-sidebar-time-transition);
+    border-right: 1px solid var(--admin-border-color);
+
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    &::-webkit-scrollbar-track, 
+    &::-webkit-scrollbar-track:hover,
+    &::-webkit-scrollbar-thumb {
+        background: transparent;
+    }
+
+    &.active {
+        overflow-y: unset;
+        
+        .nav-profile-text,
+        .notification {
+            display: none !important;
+        }
+    }
 
     .sidebar-brand-wrapper {
         width: auto;
         height: 70px;
         display: flex;
+        margin: 0 var(--admin-sidebar-nav-mr-x);
+        padding: 28px var(--admin-sidebar-item-pd-x) 0;
     }
 
     .sidebar-brand-wrapper .sidebar-brand {
-        padding: 28px 0 4px 40px;
+        transition: opacity var(--admin-sidebar-time-transition), transform var(--admin-sidebar-time-transition);
+
+        .img-brand {
+            transition: opacity var(--admin-sidebar-time-transition), transform var(--admin-sidebar-time-transition);
+            animation: animationImgLogo 1s ease;
+        }
     }
 
     .nav {
         display: flex;
-        overflow: hidden;
         flex-wrap: nowrap;
         flex-direction: column;
-        margin-bottom: 60px;
         padding-left: 0;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin: 0 var(--admin-sidebar-nav-mr-x);
         list-style: none;
+        transition: margin 0.4s ease;
     }
 
     .nav .nav-profile {
-        padding: 0 16px;
+        padding: 0 var(--admin-sidebar-item-pd-x);
         transition-duration: 0.25s;
         transition-property: background;
         border-radius: 6px;
         margin: 2px 0;
-        &:hover {
-            background: var(--admin-bg-hover-nav-item);
-        }
     }
 
     .nav .nav-link {
@@ -96,7 +125,7 @@
 
     .nav .menu-title {
         padding: 0 12px;
-        color: #3e4b5b;;
+        color: #3e4b5b;
         font-weight: 500;
         font-size: 14px;
     }

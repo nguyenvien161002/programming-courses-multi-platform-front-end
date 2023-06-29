@@ -2,9 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
 
 :root {
-    --primary: #f1c40f;
-    --admin-bg-hover-nav-item: rgba(255, 255, 255, 0.4);
-    --admin-color-word-primary: #423a8e;
+    --primary-color: #f1c40f;
+    --orange-color: #f05123;
+    --black-color: #000;
+    --white-color: #fff;
+    --gray-color: #666;
+    --text-color: #333;
+    --plum-color: #b80257;
+    --fb-color: #4080ff;
+    --mail-color: #f47425;
+    --invalid-color: #f33a58;
+    --desc-color: #0000008a;
+    --first-color: #1dbfaf;
+    --second-color: #1dbfaf;
+    --button-color: #1dbfaf;
 }
 
 * {

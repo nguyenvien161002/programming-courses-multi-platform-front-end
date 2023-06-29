@@ -7,8 +7,10 @@ import Reports from "~/admin/pages/Reports";
 import Settings from "~/admin/pages/Settings";
 import Support from "~/admin/pages/Support";
 import Users from "~/admin/pages/Users";
+import Home from "~/client/pages/Home";
 
 const publicRoutes = [
+    { path: '/', component: Home },
     { path: '/admin/', component: Dashboard, layout: DefaultLayoutAdmin },
     { path: '/admin/courses', component: Courses, layout: DefaultLayoutAdmin },
     { path: '/admin/users', component: Users, layout: DefaultLayoutAdmin },

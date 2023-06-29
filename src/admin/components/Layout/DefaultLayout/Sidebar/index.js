@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
-import classNames from 'classnames/bind';
+import { useContext } from "react";
 import { 
     faHouse, faLightbulb, faUsers, faCartShopping, 
     faFolder, faChartBar, faGear, faHeadset,
     faBook, faBell, faRightFromBracket
 } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames/bind';
 
+import { SidebarContext } from "../SidebarContext";
 import styles from './Sidebar.module.scss';
 import images from '~/admin/assets/images';
 import SidebarItem from './SidebarItem';
@@ -13,15 +15,18 @@ import SidebarItem from './SidebarItem';
 const cx = classNames.bind(styles);
 
 function Sidebar() {
+
+    const { isMinimizeSidebar } = useContext(SidebarContext)
+
     return (
-        <nav className={cx("sidebar")}>
+        <nav className={cx({"sidebar": true, "active": isMinimizeSidebar})}>
             <div className={cx("sidebar-brand-wrapper")}>
-                <Link className={cx("sidebar-brand")} to="/">
-                    <img src={images.logo.default} alt="logo" />
+                <Link className={cx("sidebar-brand")} to="#">
+                    <img src={isMinimizeSidebar ? images.logoMini.default : images.logo.default} alt="logo" />
                 </Link>
             </div>
             <ul className={cx("nav")}>
-                <li className={cx(["nav-profile", "nav-item"])}>
+                <li className={cx("nav-profile")}>
                     <Link to="#" className={cx("nav-link")}>
                         <div className={cx("nav-profile-image")}>
                             <img src={images.face} alt="profile" />
@@ -42,11 +47,11 @@ function Sidebar() {
                 <SidebarItem title="Reports" icon={faChartBar} to="/admin/reports"/>
                 <SidebarItem title="Settings" icon={faGear} to="/admin/settings"/>
                 <SidebarItem title="Support" icon={faHeadset} to="/admin/support"/>
-                <p className={cx('menu-title')}>Docs</p>
+                {!isMinimizeSidebar && <p className={cx('menu-title')}>Docs</p>}
                 <SidebarItem title="Documentation" icon={faBook} to="/admin/documentation"/>
-                <p className={cx('menu-title')}>Notification</p>
+                {!isMinimizeSidebar && <p className={cx('menu-title')}>Notification</p>}
                 <SidebarItem title="Notification" icon={faBell} to="/admin/notification"/>
-                <p className={cx('menu-title')}>Authentication</p>
+                {!isMinimizeSidebar && <p className={cx('menu-title')}>Authentication</p>}
                 <SidebarItem title="Sign out" icon={faRightFromBracket} to="/admin/logout"/>
             </ul>
         </nav>

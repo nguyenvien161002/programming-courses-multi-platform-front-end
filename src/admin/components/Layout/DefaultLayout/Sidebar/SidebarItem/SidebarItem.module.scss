@@ -1,41 +1,68 @@
 .nav-item {
-    padding: 0 16px;
-    transition-duration: 0.25s;
-    transition-property: background;
+    position: relative;
+    padding: 0 var(--admin-sidebar-item-pd-x);
     border-radius: 6px;
     margin: 2px 0;
-
-    &:hover {
-        background: var(--admin-bg-hover-nav-item);
-    }
+    transition: height 0.8s ease, background 0.8s ease;
 
     .nav-link-sidebar {
         display: flex;
-        padding: 14px 0;
+        padding: 12px 0;
 
-        p {
+        .nav-item-title {
             font-size: 14px;
             font-weight: 500;
-            color: var(--admin-color-word-primary);
+            color: var(--admin-color-word-sidebar);
         }
 
         .wrapper-icon-nav {
-            width: 40px;
+            min-width: var(--admin-sidebar-item-min-width-icon);
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-right: 14px;
     
             .icon-nav-item {
                 font-size: 18px;
-                margin-right: 14px;
-                color: var(--admin-color-word-primary);
+                color: var(--admin-color-word-sidebar);
             }
         }
         
     }
-    
-}
 
-.nav-item.active {
-    background: var(--admin-bg-hover-nav-item);
+    .nav-item-title-minimize {
+        width: 150px;
+        position: absolute;
+        top: 10px;
+        left: calc(var(--admin-sidebar-weight) - 10px);
+        z-index: 100;
+        align-items: center;
+        background: #fff;
+        border-radius: 0 6px 6px 0;
+        padding: 0 16px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        border: 1px solid var(--admin-border-color);
+        border-left: none;
+        display: none;
+    }
+
+    &:hover {
+        .nav-item-title-minimize {
+            display: flex;
+        }
+    }
+    
+
+    &.active {
+        background: var(--admin-bg-hover-nav-item);
+    
+        .nav-link-sidebar .nav-item-title,
+        .wrapper-icon-nav .icon-nav-item  {
+            color: var(--white-color);
+            font-weight: 600;
+        }
+    }
+    
 }

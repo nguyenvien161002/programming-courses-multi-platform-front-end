@@ -1,20 +1,32 @@
-import Topbar from "./Topbar";
-import Sidebar from "./Sidebar";
+import { useState } from 'react';
+import { SidebarProvider } from './SidebarContext';
 
-import classNames from "classnames/bind";
-import styles from './DefaultLayout.module.scss'
+import Topbar from './Topbar';
+import Sidebar from './Sidebar';
+
+import classNames from 'classnames/bind';
+import styles from './DefaultLayout.module.scss';
 
 const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
+
+    const [isMinimizeSidebar, setIsMinimizeSidebar] = useState(false);
+
+    const toggleSidebar = () => {
+        setIsMinimizeSidebar(!isMinimizeSidebar);
+    };
+
     return (
-        <div className={cx('wrapper')}>
-            <Sidebar />
-            <div className={cx("container")}>
-                <Topbar />
-                <div className={cx("content")}> { children }</div>
+        <SidebarProvider data={{ isMinimizeSidebar, toggleSidebar }}>
+            <div className={cx({ wrapper: true, 'minimize-sidebar': isMinimizeSidebar })}>
+                <Sidebar />
+                <div className={cx('container')}>
+                    <Topbar />
+                    <div className={cx('content')}> {children}</div>
+                </div>
             </div>
-        </div>
+        </SidebarProvider>
     );
 }
 

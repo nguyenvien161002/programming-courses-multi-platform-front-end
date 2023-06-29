@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
+
+import { SidebarContext } from "../../SidebarContext";
 import styles from './SidebarItem.module.scss';
 
 const cx = classNames.bind(styles);
@@ -9,6 +11,7 @@ const cx = classNames.bind(styles);
 const SidebarItem = ({ title, icon, to }) => {
     const location = useLocation();
     const [isActive, setIsActive] = useState(false);
+    const { isMinimizeSidebar } = useContext(SidebarContext)
 
     useEffect(() => {
         if(location.pathname === to) {
@@ -18,13 +21,14 @@ const SidebarItem = ({ title, icon, to }) => {
     }, [location.pathname, to, title]);
 
     return (
-        <li className={cx({ 'nav-item': true, active: isActive })}>
+        <li className={cx({ 'nav-item': true, 'active': isActive })}>
             <Link className={cx('nav-link-sidebar')} to={to}>
                 <div className={cx('wrapper-icon-nav')}>
                     <FontAwesomeIcon className={cx('icon-nav-item')} icon={icon} />
                 </div>
-                <p className={cx('nav-item-title')}>{title}</p>
+                {!isMinimizeSidebar && <p className={cx('nav-item-title')}>{title}</p>}
             </Link>
+            {isMinimizeSidebar && <p className={cx('nav-item-title-minimize')}>{title}</p>}
         </li>
     );
 };
