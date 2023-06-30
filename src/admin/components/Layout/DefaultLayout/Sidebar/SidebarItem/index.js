@@ -8,7 +8,7 @@ import styles from './SidebarItem.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SidebarItem = ({ title, icon, to }) => {
+const SidebarItem = ({ title, icon, to, unique }) => {
     const location = useLocation();
     const [isActive, setIsActive] = useState(false);
     const { isMinimizeSidebar } = useContext(SidebarContext)
@@ -17,8 +17,8 @@ const SidebarItem = ({ title, icon, to }) => {
         if(location.pathname === to) {
             document.title = `V4D8 | Admin - ${title}`;
         }
-        setIsActive(location.pathname === to);
-    }, [location.pathname, to, title]);
+        setIsActive(location.pathname.includes(unique) || location.pathname === to);
+    }, [location.pathname, to, title, unique]);
 
     return (
         <li className={cx({ 'nav-item': true, 'active': isActive })}>
@@ -28,7 +28,6 @@ const SidebarItem = ({ title, icon, to }) => {
                 </div>
                 {!isMinimizeSidebar && <p className={cx('nav-item-title')}>{title}</p>}
             </Link>
-            {isMinimizeSidebar && <p className={cx('nav-item-title-minimize')}>{title}</p>}
         </li>
     );
 };

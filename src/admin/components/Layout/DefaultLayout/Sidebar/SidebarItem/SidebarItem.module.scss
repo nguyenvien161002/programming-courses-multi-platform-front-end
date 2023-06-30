@@ -30,31 +30,6 @@
         
     }
 
-    .nav-item-title-minimize {
-        width: 150px;
-        position: absolute;
-        top: 10px;
-        left: calc(var(--admin-sidebar-weight) - 10px);
-        z-index: 100;
-        align-items: center;
-        background: #fff;
-        border-radius: 0 6px 6px 0;
-        padding: 0 16px;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        border: 1px solid var(--admin-border-color);
-        border-left: none;
-        display: none;
-    }
-
-    &:hover {
-        .nav-item-title-minimize {
-            display: flex;
-        }
-    }
-    
-
     &.active {
         background: var(--admin-bg-hover-nav-item);
     

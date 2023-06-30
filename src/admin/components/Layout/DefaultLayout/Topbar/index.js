@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faBell, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import classNames from 'classnames/bind';
 
 import { SidebarContext } from "../SidebarContext";

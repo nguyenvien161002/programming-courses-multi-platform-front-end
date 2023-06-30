@@ -23,7 +23,7 @@ function DefaultLayout({ children }) {
                 <Sidebar />
                 <div className={cx('container')}>
                     <Topbar />
-                    <div className={cx('content')}> {children}</div>
+                    <div className={cx('content')}>{ children }</div>
                 </div>
             </div>
         </SidebarProvider>

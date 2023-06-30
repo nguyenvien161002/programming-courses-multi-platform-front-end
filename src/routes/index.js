@@ -19,6 +19,9 @@ const publicRoutes = [
     { path: '/admin/reports', component: Reports, layout: DefaultLayoutAdmin },
     { path: '/admin/settings', component: Settings, layout: DefaultLayoutAdmin },
     { path: '/admin/support', component: Support, layout: DefaultLayoutAdmin },
+    { path: '/admin/dashboard/goals', component: Dashboard, layout: DefaultLayoutAdmin },
+    { path: '/admin/dashboard/revenue', component: Dashboard, layout: DefaultLayoutAdmin },
+    { path: '/admin/dashboard/schedule', component: Dashboard, layout: DefaultLayoutAdmin },
 ]
 
 const privateRoutes = [ 
