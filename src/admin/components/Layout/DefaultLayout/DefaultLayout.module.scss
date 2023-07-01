@@ -8,6 +8,7 @@
     --admin-sidebar-nav-mr-x: 20px;
     --admin-sidebar-item-min-width-icon: 34px;
     --admin-sidebar-time-transition: 0.4s ease;
+    --admin-content-pd-x: 2.4rem;
     display: flex;
     
     &.minimize-sidebar {
@@ -23,7 +24,7 @@
     }
 
     .content {
-        padding: 2rem 2.6rem;
+        padding: 2rem var(--admin-content-pd-x);
     }
 }
 

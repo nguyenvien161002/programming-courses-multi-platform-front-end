@@ -100,7 +100,7 @@ function Sidebar() {
                 <li className={cx('nav-profile')}>
                     <Link to="#" className={cx('nav-link')}>
                         <div className={cx('nav-profile-image')}>
-                            <img src={images.face} alt="profile" />
+                            <img src={images.silentMeow} alt="profile" />
                             <span className={cx('login-status')}></span>
                         </div>
                         <div className={cx('nav-profile-text')}>

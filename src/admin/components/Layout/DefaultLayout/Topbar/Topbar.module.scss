@@ -1,4 +1,5 @@
 .wrapper {
+    --commonly-utilized-sizes: 2.4rem;
     align-items: center;
     background: #fff;
     display: flex;
@@ -6,7 +7,7 @@
     justify-content: space-between;
     font-size: 1.4rem;
     height: var(--admin-top-height);
-    padding: 0 12px;
+    padding: 0 var(--admin-content-pd-x);
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -15,67 +16,31 @@
     z-index: 10;
     border-bottom: 1px solid var(--admin-border-color);
     transition: width 0.25s ease, background 0.25s ease;
-}
 
-.body {
-    display: flex;
-    align-items: center;
+    .body {
+        display: flex;
+        align-items: center;
+        
+        .nav-bar-toggler {
+            color: #707070;
+            display: flex;
+            border-radius: 6px;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--commonly-utilized-sizes);
+            margin-right: var(--commonly-utilized-sizes);
+            cursor: pointer;
     
-    .nav-bar-toggler {
-        color: #707070;
-        width: 48px;
-        height: 40px;
-        display: flex;
-        border-radius: 6px;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        margin-right: 8px;
-        cursor: pointer;
-
-        &:hover {
-            background: #e8e8e8;
+            &:hover {
+                background: #e8e8e8;
+            }
         }
     }
-}
-
-.actions {
-    display: flex;
-    align-items: center;
-
-    .box-avatar {
-        width: 62px;
+    
+    .actions {
         display: flex;
         align-items: center;
-        justify-content: center;
-        height: max-content;
-        border-radius: 50%;
-        overflow: hidden;
-        cursor: pointer;
-
-        .avatar {
-            border-radius: 50%;
-            object-fit: cover;
-            width: 34px;
-            height: 34px;
-        }
-    }
-
-    .action-item {
-        color: #707070;
-        font-size: 2.4rem;
-        padding: 8px;
         position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        cursor: pointer;
-
-        &:first-child {
-            margin-right: 8px;
-        }
     }
+
 }

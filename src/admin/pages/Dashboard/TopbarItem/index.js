@@ -7,19 +7,18 @@ import styles from './TopbarItem.module.scss';
 const cx = classNames.bind(styles);
 
 function TopbarItem({ title, to }) {
-
     const location = useLocation();
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
-        if(location.pathname === to) {
-            document.title = `V4D8 | Admin - ${title}`;
+        if (location.pathname === to) {
+            document.title = `${process.env.REACT_APP_NAME} | Admin - ${title}`;
         }
         setIsActive(location.pathname === to);
     }, [location.pathname, to, title]);
 
     return (
-        <li className={cx({ 'nav-item': true, 'active': isActive })}>
+        <li className={cx({'nav-item': true, 'active': isActive})}>
             <Link className={cx('nav-link')} to={to}>
                 <p className={cx('nav-item-title')}>{title}</p>
             </Link>

@@ -15,7 +15,7 @@ const SidebarItem = ({ title, icon, to, unique }) => {
 
     useEffect(() => {
         if(location.pathname === to) {
-            document.title = `V4D8 | Admin - ${title}`;
+            document.title = `${process.env.REACT_APP_NAME} | Admin - ${title}`;
         }
         setIsActive(location.pathname.includes(unique) || location.pathname === to);
     }, [location.pathname, to, title, unique]);
