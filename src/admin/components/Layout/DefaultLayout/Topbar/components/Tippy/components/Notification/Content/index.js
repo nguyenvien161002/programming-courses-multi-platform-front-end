@@ -1,13 +1,29 @@
 import classNames from 'classnames/bind';
 
 import styles from './Content.module.scss';
+import NotifiItem from '../NotifiItem';
 
 const cx = classNames.bind(styles);
 
 function Notification() {
     return (
-        <div className={cx('wrapper')} aria-expanded="false">
-            Đây là thông báo
+        <div className={cx('wrapper')}>
+            <header>
+                <div className={cx('title')}>Notification</div>
+                <button className={cx('mark-read-btn')}>Mark as read</button>
+            </header>
+            <div className={cx('content')}>
+                <NotifiItem />
+                <NotifiItem />
+                <NotifiItem />
+                <NotifiItem />
+                <NotifiItem />
+                <NotifiItem />
+                <NotifiItem />
+                <NotifiItem />
+                <NotifiItem />
+                <NotifiItem />
+            </div>
         </div>
     );
 }

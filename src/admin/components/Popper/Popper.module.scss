@@ -4,9 +4,9 @@
     box-shadow: 0 -0.4rem 3.2rem rgba(0, 0, 0, .2);
     color: #1d2129;
     margin: 0;
+    padding: 0;
     overflow: hidden;
     will-change: opacity, transform;
-    padding: 0.8rem 2.4rem;
     background: var(--white-color);
     transition: all var(--admin-sidebar-time-transition);
     animation: fadeIn var(--admin-sidebar-time-transition);

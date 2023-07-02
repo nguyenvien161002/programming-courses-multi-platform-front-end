@@ -7,6 +7,8 @@ const images = {
     meowMeow: require('~/admin/assets/images/meow-meow.jpg'),
     silentMeow: require('~/admin/assets/images/silent-meow.jpg'),
     eagerMeow: require('~/admin/assets/images/eagere-meow.jpg'),
+    f8Avatar: require('~/admin/assets/images/f8_avatar.png'),
+    crush: require('~/admin/assets/images/crush.jpg'),
 };
 
 export default images

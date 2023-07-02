@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
@@ -10,7 +10,7 @@ import Content from './Content';
 
 const cx = classNames.bind(styles);
 
-function TippyMailbox() {
+function TippyMessenger() {
     const [visible, setVisible] = useState(false);
     const show = () => setVisible(true);
     const hide = () => setVisible(false);
@@ -31,10 +31,10 @@ function TippyMailbox() {
             )}
         >
             <div className={cx('action-item')}>
-                <FontAwesomeIcon icon={faEnvelope} onClick={visible ? hide : show}/>
+                <FontAwesomeIcon icon={faFacebookMessenger} onClick={visible ? hide : show}/>
             </div>
         </Tippy>
     );
 }
 
-export default TippyMailbox;
+export default TippyMessenger;

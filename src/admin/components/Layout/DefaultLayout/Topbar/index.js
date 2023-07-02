@@ -4,7 +4,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
 import { SidebarContext } from '../SidebarContext';
-import { Mail, Notification, UserMenu } from './components/Tippy';
+import { Messenger, Notification, UserMenu } from './components/Tippy';
 import styles from './Topbar.module.scss';
 import Search from './components/Search';
 
@@ -25,7 +25,7 @@ function Topbar() {
             </div>
             <div className={cx('actions')}>
                 <Notification />
-                <Mail />
+                <Messenger />
                 <UserMenu />
             </div>
         </div>

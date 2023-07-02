@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 function UserMenu() {
     return (
-        <div className={cx('wrapper')} aria-expanded="false">
+        <div className={cx('wrapper')}>
             <div className={cx('user')}>
                 <div className={cx('avatar-wrapper')}>
                     <img
@@ -25,7 +25,7 @@ function UserMenu() {
             <ul className={cx('list')}>
                 <li>
                     <Link className={cx('item')} to="/@nguyenvanvien1">
-                        Trang cá nhân
+                        Your profile
                     </Link>
                 </li>
             </ul>
@@ -33,20 +33,12 @@ function UserMenu() {
             <ul className={cx('list')}>
                 <li>
                     <Link className={cx('item')} to="/@nguyenvanvien1">
-                        Viết Blog
+                        Create a blog
                     </Link>
                 </li>
                 <li>
                     <Link className={cx('item')} to="/@nguyenvanvien1">
-                        Bài viết của tôi
-                    </Link>
-                </li>
-            </ul>
-            <hr />
-            <ul className={cx('list')}>
-                <li>
-                    <Link className={cx('item')} to="/@nguyenvanvien1">
-                        Bài viết đã lưu
+                        Your blog
                     </Link>
                 </li>
             </ul>
@@ -54,12 +46,20 @@ function UserMenu() {
             <ul className={cx('list')}>
                 <li>
                     <Link className={cx('item')} to="/@nguyenvanvien1">
-                        Cài đặt
+                        Blog saved
+                    </Link>
+                </li>
+            </ul>
+            <hr />
+            <ul className={cx('list')}>
+                <li>
+                    <Link className={cx('item')} to="/@nguyenvanvien1">
+                        Settings
                     </Link>
                 </li>
                 <li>
                     <Link className={cx('item')} to="/@nguyenvanvien1">
-                        Đăng xuất
+                        Sign out
                     </Link>
                 </li>
             </ul>
