@@ -1,10 +1,9 @@
 .wrapper {
-    --commonly-utilized-sizes: 2.4rem;
+    --commonly-utilized-sizes: 2.2rem;
     align-items: center;
     background: #fff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     font-size: 1.4rem;
     height: var(--admin-top-height);
     padding: 0 var(--admin-content-pd-x);
@@ -20,9 +19,9 @@
     .body {
         display: flex;
         align-items: center;
-        
+
         .nav-bar-toggler {
-            color: #707070;
+            color: var(--icon-color);
             display: flex;
             border-radius: 6px;
             align-items: center;
@@ -30,17 +29,18 @@
             font-size: var(--commonly-utilized-sizes);
             margin-right: var(--commonly-utilized-sizes);
             cursor: pointer;
-    
-            &:hover {
-                background: #e8e8e8;
-            }
         }
     }
-    
+
     .actions {
         display: flex;
         align-items: center;
-        position: relative;
+        justify-content: flex-end;
+        flex: 1 1;
+    }
+
+    [data-tippy-root] {
+        max-width: calc(100vw - 10px);
     }
 
 }

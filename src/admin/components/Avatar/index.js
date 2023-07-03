@@ -5,9 +5,9 @@ import images from '~/admin/assets/images';
 
 const cx = classNames.bind(styles);
 
-function Avatar() {
+function Avatar({ fontSize }) {
     return (
-        <div className={cx('avatar-wrapper')}>
+        <div className={cx('avatar-wrapper')} style={{ '--font-size': fontSize }}>
             <img className={cx('avatar')} src={images.silentMeow} alt="Nguyễn Văn Viên" />
         </div>
     );

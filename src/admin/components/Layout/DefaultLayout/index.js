@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { SidebarProvider } from './SidebarContext';
+import classNames from 'classnames/bind';
 
 import Topbar from './Topbar';
 import Sidebar from './Sidebar';
 
-import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 
 const cx = classNames.bind(styles);

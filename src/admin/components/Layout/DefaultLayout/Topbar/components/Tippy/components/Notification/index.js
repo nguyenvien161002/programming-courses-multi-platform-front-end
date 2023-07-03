@@ -21,7 +21,7 @@ function TippyNotification() {
             content="Tooltip"
             visible={visible}
             onClickOutside={hide}
-            placement="bottom-start"
+            placement="bottom-end"
             render={(attrs) => (
                 <PopperWrapper>
                     <div className={cx('wrapper-user-menu')} tabIndex="-1" {...attrs}>

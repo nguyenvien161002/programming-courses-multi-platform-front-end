@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import styles from './Content.module.scss';
-import images from '~/admin/assets/images';
+import Avatar from '~/admin/components/Avatar';
 
 const cx = classNames.bind(styles);
 
@@ -11,10 +11,7 @@ function UserMenu() {
         <div className={cx('wrapper')}>
             <div className={cx('user')}>
                 <div className={cx('avatar-wrapper')}>
-                    <img
-                        src={images.silentMeow}
-                        alt="NGUYỄN VĂN VIÊN"
-                    />
+                    <Avatar fontSize={"0.56rem"} />
                 </div>
                 <div className={cx('info')}>
                     <span className={cx('username')}>NGUYỄN VĂN VIÊN</span>
@@ -24,7 +21,7 @@ function UserMenu() {
             <hr />
             <ul className={cx('list')}>
                 <li>
-                    <Link className={cx('item')} to="/@nguyenvanvien1">
+                    <Link className={cx('item')} to="/admin/@nguyenvanvien1">
                         Your profile
                     </Link>
                 </li>
@@ -32,12 +29,12 @@ function UserMenu() {
             <hr />
             <ul className={cx('list')}>
                 <li>
-                    <Link className={cx('item')} to="/@nguyenvanvien1">
+                    <Link className={cx('item')} to="/admin/@nguyenvanvien1">
                         Create a blog
                     </Link>
                 </li>
                 <li>
-                    <Link className={cx('item')} to="/@nguyenvanvien1">
+                    <Link className={cx('item')} to="/admin/@nguyenvanvien1">
                         Your blog
                     </Link>
                 </li>
@@ -45,7 +42,7 @@ function UserMenu() {
             <hr />
             <ul className={cx('list')}>
                 <li>
-                    <Link className={cx('item')} to="/@nguyenvanvien1">
+                    <Link className={cx('item')} to="/admin/@nguyenvanvien1">
                         Blog saved
                     </Link>
                 </li>
@@ -53,12 +50,12 @@ function UserMenu() {
             <hr />
             <ul className={cx('list')}>
                 <li>
-                    <Link className={cx('item')} to="/@nguyenvanvien1">
+                    <Link className={cx('item')} to="/admin/@nguyenvanvien1">
                         Settings
                     </Link>
                 </li>
                 <li>
-                    <Link className={cx('item')} to="/@nguyenvanvien1">
+                    <Link className={cx('item')} to="/admin/@nguyenvanvien1">
                         Sign out
                     </Link>
                 </li>

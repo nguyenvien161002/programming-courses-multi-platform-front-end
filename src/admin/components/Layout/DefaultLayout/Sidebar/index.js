@@ -11,6 +11,7 @@ import { SidebarContext } from '../SidebarContext';
 import styles from './Sidebar.module.scss';
 import images from '~/admin/assets/images';
 import SidebarItem from './SidebarItem';
+import Avatar from '~/admin/components/Avatar';
 
 const cx = classNames.bind(styles);
 
@@ -100,8 +101,7 @@ function Sidebar() {
                 <li className={cx('nav-profile')}>
                     <Link to="#" className={cx('nav-link')}>
                         <div className={cx('nav-profile-image')}>
-                            <img src={images.silentMeow} alt="profile" />
-                            <span className={cx('login-status')}></span>
+                            <Avatar fontSize={'0.4rem'} />
                         </div>
                         <div className={cx('nav-profile-text')}>
                             <span className={cx('username')}>Henry Klein</span>
