@@ -5,6 +5,8 @@ import styles from './Overview.module.scss';
 import Card from './components/Card';
 import ChartPayHistory from './components/ChartPayHistory';
 import TablePayHistory from './components/TablePayHistory';
+import SocialMedia from './components/SocialMedia';
+import ChartGenaral from './components/ChartGenaral';
 
 const cx = classNames.bind(styles);
 
@@ -68,8 +70,12 @@ function Overview() {
                 <TablePayHistory />
             </section>
             <section className={cx('center')}>
-                <div className={cx('center-left')}></div>
-                <div className={cx('center-right')}></div>
+                <div className={cx('center-left')}>
+                    <ChartGenaral />
+                </div>
+                <div className={cx('center-right')}>
+                    <SocialMedia />
+                </div>
             </section>
         </div>
     );

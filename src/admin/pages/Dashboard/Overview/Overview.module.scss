@@ -14,18 +14,22 @@
 
     .chart-pay-history,
     .table-pay-history {
-        width: 100%;
         background: var(--white-color);
+        margin-bottom: var(--container-mr-bottom);
     }
 
     .center {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 2rem;
+        transition: all var(--admin-sidebar-time-transition);
 
         .center-left,
         .center-right {
-            width: calc(50% - 1rem);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            transition: all var(--admin-sidebar-time-transition);
         }
 
     }

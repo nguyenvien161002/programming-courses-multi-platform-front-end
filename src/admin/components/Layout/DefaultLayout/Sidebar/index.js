@@ -10,8 +10,8 @@ import classNames from 'classnames/bind';
 import { SidebarContext } from '../SidebarContext';
 import styles from './Sidebar.module.scss';
 import images from '~/admin/assets/images';
-import SidebarItem from './SidebarItem';
 import Avatar from '~/admin/components/Avatar';
+import SidebarItem from './SidebarItem';
 
 const cx = classNames.bind(styles);
 

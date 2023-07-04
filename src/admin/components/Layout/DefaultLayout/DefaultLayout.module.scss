@@ -18,13 +18,16 @@
     }
 
     .container {
-        flex: 1;
+        width: calc(100% - var(--admin-sidebar-weight));
+        overflow: hidden;
+        flex: 1 1;
         margin-left: var(--admin-sidebar-weight);
         transition: all var(--admin-sidebar-time-transition);
     }
 
     .content {
         padding: 2rem var(--admin-content-pd-x);
+        margin-top: var(--admin-top-height);
 
         .copyright {
             display: flex;

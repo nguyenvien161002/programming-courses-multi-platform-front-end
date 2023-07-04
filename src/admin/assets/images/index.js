@@ -9,6 +9,7 @@ const images = {
     eagerMeow: require('~/admin/assets/images/eagere-meow.jpg'),
     f8Avatar: require('~/admin/assets/images/f8_avatar.png'),
     crush: require('~/admin/assets/images/crush.jpg'),
+    plane: require('~/admin/assets/images/plane.png'),
     payments: {
         paypal: require('~/admin/assets/images/payments/paypal.png'),
         cash: require('~/admin/assets/images/payments/cash.png'),
