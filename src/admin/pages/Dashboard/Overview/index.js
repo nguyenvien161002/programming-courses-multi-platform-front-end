@@ -3,6 +3,8 @@ import classNames from 'classnames/bind';
 
 import styles from './Overview.module.scss';
 import Card from './components/Card';
+import ChartPayHistory from './components/ChartPayHistory';
+import TablePayHistory from './components/TablePayHistory';
 
 const cx = classNames.bind(styles);
 
@@ -59,7 +61,16 @@ function Overview() {
                     }}
                 />
             </section>
-            <section className={cx('payment-history')}></section>
+            <section className={cx('chart-pay-history')}>
+                <ChartPayHistory />
+            </section>
+            <section className={cx('table-pay-history')}>
+                <TablePayHistory />
+            </section>
+            <section className={cx('center')}>
+                <div className={cx('center-left')}></div>
+                <div className={cx('center-right')}></div>
+            </section>
         </div>
     );
 }

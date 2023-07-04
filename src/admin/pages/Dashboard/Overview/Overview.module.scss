@@ -1,22 +1,33 @@
 .wrapper {
     --commonly-utilized-sizes: 2.4rem;
+    --commonly-utilized-border: 1px solid rgba(0, 0, 0, 0.1);
+    --container-mr-bottom: 2rem;
+    --container-border-radius: 0.8rem;
     padding: var(--commonly-utilized-sizes) 0;
 
     .genaral {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
-        margin-bottom: 20px;
+        margin-bottom: var(--container-mr-bottom);
     }
 
-    .payment-history {
-        flex: 1 1;
+    .chart-pay-history,
+    .table-pay-history {
+        width: 100%;
+        background: var(--white-color);
+    }
+
+    .center {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        padding: 3.6rem;
-        border-radius: 0.8rem;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        justify-content: space-between;
+
+        .center-left,
+        .center-right {
+            width: calc(50% - 1rem);
+        }
+
     }
 
 }

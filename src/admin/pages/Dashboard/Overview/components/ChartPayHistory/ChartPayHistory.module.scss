@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2.4rem 3.6rem 3rem 3.6rem;
+    border-radius: var(--container-border-radius);
+    border: var(--commonly-utilized-border);
+    margin-bottom: var(--container-mr-bottom);
+
+    .title {
+        padding-bottom: 1.6rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        margin-bottom: 3rem;
+        color: var(--icon-color);
+        font-size: 1.6rem;
+    }
+
+    .title,
+    .content {
+        width: 100%;
+        flex: 1 1;
+    }
+
+}

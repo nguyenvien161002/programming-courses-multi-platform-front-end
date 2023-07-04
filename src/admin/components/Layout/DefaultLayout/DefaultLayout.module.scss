@@ -10,7 +10,7 @@
     --admin-sidebar-time-transition: 0.4s ease;
     --admin-content-pd-x: 2.4rem;
     display: flex;
-    
+
     &.minimize-sidebar {
         --admin-sidebar-item-pd-x: 8px;
         --admin-sidebar-nav-mr-x: 10px;
@@ -25,6 +25,18 @@
 
     .content {
         padding: 2rem var(--admin-content-pd-x);
+
+        .copyright {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.4rem;
+            font-size: 1.4rem;
+            color: var(--icon-color);
+
+            .icon-heart {
+                margin-left: 0.4rem;
+            }
+        }
     }
 }
-

@@ -9,6 +9,12 @@ const images = {
     eagerMeow: require('~/admin/assets/images/eagere-meow.jpg'),
     f8Avatar: require('~/admin/assets/images/f8_avatar.png'),
     crush: require('~/admin/assets/images/crush.jpg'),
+    payments: {
+        paypal: require('~/admin/assets/images/payments/paypal.png'),
+        cash: require('~/admin/assets/images/payments/cash.png'),
+        cancel: require('~/admin/assets/images/payments/cancel.png'),
+        bank: require('~/admin/assets/images/payments/bank.png'),
+    }
 };
 
 export default images
