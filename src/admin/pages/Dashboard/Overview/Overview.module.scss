@@ -12,6 +12,8 @@
         margin-bottom: var(--container-mr-bottom);
     }
 
+    .chart-courses,
+    .table-courses,
     .chart-pay-history,
     .table-pay-history {
         background: var(--white-color);
@@ -23,6 +25,7 @@
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 2rem;
         transition: all var(--admin-sidebar-time-transition);
+        margin-bottom: var(--container-mr-bottom);
 
         .center-left,
         .center-right {

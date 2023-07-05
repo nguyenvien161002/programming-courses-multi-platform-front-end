@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Area } from '@ant-design/plots';
+import { Line } from '@ant-design/plots';
 import classNames from 'classnames/bind';
 
-import styles from './ChartPayHistory.module.scss';
+import styles from './ChartCourses.module.scss';
 
 const cx = classNames.bind(styles);
 
-function ChartPayHistory() {
+function ChartCourses() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ function ChartPayHistory() {
     }, []);
 
     const asyncFetch = () => {
-        fetch('https://gw.alipayobjects.com/os/bmw-prod/b21e7336-0b3e-486c-9070-612ede49284e.json')
+        fetch('https://gw.alipayobjects.com/os/bmw-prod/55424a73-7cb8-4f79-b60d-3ab627ac5698.json')
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => {
@@ -23,24 +23,30 @@ function ChartPayHistory() {
     };
     const config = {
         data,
-        xField: 'date',
+        xField: 'year',
         yField: 'value',
-        seriesField: 'country',
+        seriesField: 'category',
         legend: {
             position: 'top',
-        }
+        },
+        yAxis: {
+            label: {
+                formatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`),
+            },
+        },
+        color: ['#1979C9', '#D62A0D', '#FAA219'],
     };
 
     return (
         <div className={cx('wrapper')}>
             <div className={cx('title')}>
-                <span>Chart Payment History</span>
+                <span>Chart Courses</span>
             </div>
             <div className={cx('content')}>
-                <Area {...config} />
+                <Line {...config} />
             </div>
         </div>
     );
 }
 
-export default ChartPayHistory;
+export default ChartCourses;

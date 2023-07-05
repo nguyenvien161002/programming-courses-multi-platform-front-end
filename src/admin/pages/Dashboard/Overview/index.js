@@ -7,6 +7,8 @@ import ChartPayHistory from './components/ChartPayHistory';
 import TablePayHistory from './components/TablePayHistory';
 import SocialMedia from './components/SocialMedia';
 import ChartGenaral from './components/ChartGenaral';
+import ChartCourses from './components/ChartCourses';
+import TableCourses from './components/TableCourses';
 
 const cx = classNames.bind(styles);
 
@@ -63,11 +65,11 @@ function Overview() {
                     }}
                 />
             </section>
-            <section className={cx('chart-pay-history')}>
-                <ChartPayHistory />
+            <section className={cx('chart-courses')}>
+                <ChartCourses />
             </section>
-            <section className={cx('table-pay-history')}>
-                <TablePayHistory />
+            <section className={cx('table-courses')}>
+                <TableCourses />
             </section>
             <section className={cx('center')}>
                 <div className={cx('center-left')}>
@@ -76,6 +78,12 @@ function Overview() {
                 <div className={cx('center-right')}>
                     <SocialMedia />
                 </div>
+            </section>
+            <section className={cx('chart-pay-history')}>
+                <ChartPayHistory />
+            </section>
+            <section className={cx('table-pay-history')}>
+                <TablePayHistory />
             </section>
         </div>
     );

@@ -1,0 +1,20 @@
+.wrapper {
+    padding: 3rem 3.6rem;
+    padding-bottom: 1.8rem;
+    border: var(--commonly-utilized-border);
+    border-radius: var(--container-border-radius);
+
+    .title {
+        padding-bottom: 1.6rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        margin-bottom: 3rem;
+        color: var(--icon-color);
+        font-size: 1.6rem;
+    }
+
+    .content {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+}
