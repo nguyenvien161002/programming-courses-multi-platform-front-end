@@ -1,0 +1,38 @@
+.wrapper {
+    --height: 44px;
+    background-color: #fff;
+    border: 2px solid #dce0e3;
+    border-radius: 44px;
+    padding-left: 1.6rem;
+    position: relative;
+    text-align: center;
+    margin-top: 2rem;
+    width: 320px;
+
+    &:hover {
+        background-color: #dce0e3;
+        cursor: pointer;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    .icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .title {
+        color: #35414c;
+        cursor: pointer;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 40px;
+        outline: 0;
+        text-align: center
+    }
+
+}

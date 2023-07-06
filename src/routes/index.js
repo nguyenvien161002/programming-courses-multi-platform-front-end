@@ -1,4 +1,5 @@
-import { DefaultLayoutAdmin } from "~/admin/components/Layout";
+import { DefaultLayoutAdmin, DefaultLayoutAuth } from "~/admin/components/Layout";
+import Auth from "~/admin/pages/Auth";
 import Category from "~/admin/pages/Category";
 import Courses from "~/admin/pages/Courses";
 import Dashboard from "~/admin/pages/Dashboard";
@@ -11,6 +12,8 @@ import Home from "~/client/pages/Home";
 
 const publicRoutes = [
     { path: '/', component: Home },
+    { path: '/signin', component: Auth, layout: DefaultLayoutAuth},
+    { path: '/signup', component: Auth, layout: DefaultLayoutAuth},
     { path: '/admin/', component: Dashboard, layout: DefaultLayoutAdmin },
     { path: '/admin/courses', component: Courses, layout: DefaultLayoutAdmin },
     { path: '/admin/users', component: Users, layout: DefaultLayoutAdmin },

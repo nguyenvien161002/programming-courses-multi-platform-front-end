@@ -1,8 +1,11 @@
 .wrapper {
-    padding: 3rem 3.6rem;
-    padding-bottom: 1.8rem;
-    border: var(--commonly-utilized-border);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2.4rem 3.6rem 3rem 3.6rem;
     border-radius: var(--container-border-radius);
+    border: var(--commonly-utilized-border);
 
     .title {
         padding-bottom: 1.6rem;
@@ -10,11 +13,12 @@
         margin-bottom: 3rem;
         color: var(--icon-color);
         font-size: 1.6rem;
+        font-weight: 500;
     }
 
+    .title,
     .content {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        flex: 1 1;
     }
-
 }

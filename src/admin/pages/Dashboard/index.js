@@ -1,13 +1,13 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import TopbarItem from './TopbarItem';
 import classNames from 'classnames/bind';
 import styles from './Dashboard.module.scss';
-import Overview from './Overview';
-import Goals from './Goals';
-import Revenue from './Revenue';
-import Schedule from './Schedule';
+import TopbarItem from './components/TopbarItem';
+import Overview from './components/Overview';
+import Goals from './components/Goals';
+import Revenue from './components/Revenue';
+import Schedule from './components/Schedule';
 
 const cx = classNames.bind(styles);
 

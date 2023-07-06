@@ -1,0 +1,40 @@
+.header {
+    overflow: hidden;
+
+    .title {
+        color: #292929;
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin: 1.8rem 0;
+    }
+
+    .logo {
+        width: 4.4rem;
+        height: 4.8rem;
+        object-fit: cover;
+        border-radius: 0.8rem;
+    }
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0.8rem;
+
+    .main-step {
+        margin-top: 24px;
+    }
+
+    .dont-have-acc {
+        font-size: 1.4rem;
+        line-height: 1.8;
+        margin-bottom: 0;
+        padding: 2.4rem 1.6rem 0;
+    
+        a {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+    }
+}

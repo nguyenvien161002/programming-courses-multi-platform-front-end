@@ -1,7 +1,6 @@
 const images = {
     logo: require('~/admin/assets/images/logo.svg'),
     logoMini: require('~/admin/assets/images/logo-mini.svg'),
-    face: require('~/admin/assets/images/face1.jpg'),
     searchIcon: require('~/admin/assets/images/search-icon.svg'),
     hideousMeow: require('~/admin/assets/images/hideous-meow.jpg'),
     meowMeow: require('~/admin/assets/images/meow-meow.jpg'),
@@ -15,6 +14,12 @@ const images = {
         cash: require('~/admin/assets/images/payments/cash.png'),
         cancel: require('~/admin/assets/images/payments/cancel.png'),
         bank: require('~/admin/assets/images/payments/bank.png'),
+    },
+    social: {
+        personal: require('~/admin/assets/images/personal.svg'),
+        google: require('~/admin/assets/images/google.svg'),
+        facebook: require('~/admin/assets/images/facebook.svg'),
+        github: require('~/admin/assets/images/github.svg'),
     }
 };
 

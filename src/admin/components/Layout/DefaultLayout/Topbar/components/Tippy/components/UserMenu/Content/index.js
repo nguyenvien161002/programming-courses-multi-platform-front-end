@@ -55,6 +55,11 @@ function UserMenu() {
                     </Link>
                 </li>
                 <li>
+                    <Link className={cx('item')} to="/signin">
+                        Sign in
+                    </Link>
+                </li>
+                <li>
                     <Link className={cx('item')} to="/admin/@nguyenvanvien1">
                         Sign out
                     </Link>
