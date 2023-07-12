@@ -1,28 +1,45 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
 import styles from './FormInput.module.scss';
-import images from '~/admin/assets/images';
 
 const cx = classNames.bind(styles);
 
-function FormInput() {
+function FormInput({ type, placeholder, name, withStyles }) {
+
     return (
-        <>
-            <div className={cx('wrapper')}>
-                <div className={cx('labelGroup')}>
-                    <label className={cx('label')}>Số điện thoại</label>
-                    <label className={cx('label right')}>Đăng nhập với email</label>
+        <div className={cx('wrapper')}>
+            {withStyles.labelGroup && (
+                <div className={cx('label-group')}>
+                    <label className={cx({ label: true, 'd-none': !withStyles.labelGroup.left })}>
+                        {withStyles.labelGroup.left}
+                    </label>
+                    <label
+                        className={cx({ label: true, 'cursor-pointer': true, 'd-none': !withStyles.labelGroup.right })}
+                        onClick={withStyles.labelGroup.handle}
+                    >
+                        {withStyles.labelGroup.right}
+                    </label>
                 </div>
-                <div className={cx('inputWrap')}>
-                    <div className={cx('wrapper insideInput')}>
+            )}
+            <div className={cx('input-wrapper')}>
+                {withStyles.insideInputTop && (
+                    <div className={cx('inside-input')}>
                         <div className={cx('label')} aria-expanded="false">
                             <span>VN +84</span>
+                            <FontAwesomeIcon className={cx('icon')} icon={faChevronDown} />
                         </div>
                     </div>
-                    <input type="text" placeholder="Số điện thoại" name="phone" maxlength="12" value="" />
-                </div>
+                )}
+                <input type={type} placeholder={placeholder} name={name} />
+                {withStyles.insideInputBottom && (
+                    <div className={cx('right-btn')}>
+                        <span>Send code</span>
+                    </div>
+                )}
             </div>
-        </>
+        </div>
     );
 }
 

@@ -11,21 +11,21 @@ function DefaultLayoutAuth({ children }) {
                 <div className={cx('content')}>
                     {children}
                     <div className={cx('accept-term')}>
-                        Việc bạn tiếp tục sử dụng trang web này đồng nghĩa bạn đồng ý với{' '}
-                        <a href={`${process.env.REACT_APP_URL}/term`}>Điều khoản sử dụng</a> của chúng tôi.
+                        Your continued use of this website constitutes your agreement to our{' '}
+                        <a href={`${process.env.REACT_APP_URL}/term`}>Terms of Use</a>.
                     </div>
                 </div>
                 <div className={cx('about')}>
                     <a href={`${process.env.REACT_APP_URL}/abou-us`} target="_blank" rel="noreferrer">
-                        Giới thiệu về V3D8
+                        About V3D8
                     </a>
                     <span>|</span>
                     <a href="https://www.youtube.com/c/V3D8VNOfficial" target="_blank" rel="noreferrer">
-                        V3D8 trên Youtube
+                        V3D8 on Youtube
                     </a>
                     <span>|</span>
                     <a href="https://www.facebook.com/groups/V3D8official" target="_blank" rel="noreferrer">
-                        V3D8 trên Facebook
+                        V3D8 on Facebook
                     </a>
                 </div>
             </div>

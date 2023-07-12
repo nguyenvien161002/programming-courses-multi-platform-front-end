@@ -1,21 +1,14 @@
 import classNames from 'classnames/bind';
 
 import styles from './FormControl.module.scss';
-import images from '~/admin/assets/images';
-import FormInput from '../FormInput';
 
 const cx = classNames.bind(styles);
 
-function FormControl() {
+function FormControl({ display, children }) {
     return (
-        <>
-            <div className={cx('wrapper')}>
-                <FormInput />
-            </div>
-            <div className={cx('wrapper')}>
-                <FormInput />
-            </div>
-        </>
+        <div className={cx('wrapper', {'d-none': display})}>
+            {children}
+        </div>
     );
 }
 

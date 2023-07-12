@@ -3,6 +3,8 @@ import Auth from "~/admin/pages/Auth";
 import Category from "~/admin/pages/Category";
 import Courses from "~/admin/pages/Courses";
 import Dashboard from "~/admin/pages/Dashboard";
+import Documentation from "~/admin/pages/Documentation";
+import Notification from "~/admin/pages/Notification";
 import Orders from "~/admin/pages/Orders";
 import Reports from "~/admin/pages/Reports";
 import Settings from "~/admin/pages/Settings";
@@ -22,9 +24,10 @@ const publicRoutes = [
     { path: '/admin/reports', component: Reports, layout: DefaultLayoutAdmin },
     { path: '/admin/settings', component: Settings, layout: DefaultLayoutAdmin },
     { path: '/admin/support', component: Support, layout: DefaultLayoutAdmin },
+    { path: '/admin/documentation', component: Documentation, layout: DefaultLayoutAdmin },
+    { path: '/admin/notification', component: Notification, layout: DefaultLayoutAdmin },
     { path: '/admin/dashboard/goals', component: Dashboard, layout: DefaultLayoutAdmin },
     { path: '/admin/dashboard/revenue', component: Dashboard, layout: DefaultLayoutAdmin },
-    { path: '/admin/dashboard/schedule', component: Dashboard, layout: DefaultLayoutAdmin },
 ]
 
 const privateRoutes = [ 

@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
-import AuthButton from '~/admin/components/AuthButton';
+import { FormProvider } from './components/FormContext';
+import AuthButton from '~/admin/pages/Auth/components/AuthButton';
 import FormSignIn from './components/FormSignIn';
+import FormSignUp from './components/FormSignUp';
 import styles from './Auth.module.scss';
 import images from '~/admin/assets/images';
 
@@ -13,78 +15,122 @@ function Auth() {
     const location = useLocation();
     const appName = process.env.REACT_APP_NAME;
     const [isSignUp, setIsSignUp] = useState(false);
-    const [isHandleBtn, setIsHandleBtn] = useState(false);
-
+    const [isHandleAuthBtn, setIsHandleAuthBtn] = useState(false);
+    const [isSignInWithEmail, setIsSignInWithEmail] = useState(false);
+    const [varOfThisPage, setVarOfThisPage] = useState({
+        url: '',
+        titlePage: '',
+        titleForm: '',
+        dontHaveAcc: {
+            url: '',
+            title: '',
+            titleLink: '',
+        },
+    });
     const btnsAuth = [
         {
-            title: 'Sử dụng email / số điện thoại',
+            title: 'Use email/phone number',
             iconSrc: images.social.personal.default,
         },
         {
-            title: 'Tiếp tục với Google',
+            title: 'Continue with Google',
             iconSrc: images.social.google.default,
         },
         {
-            title: 'Tiếp tục với Facebook',
+            title: 'Continue with Facebook',
             iconSrc: images.social.facebook.default,
         },
         {
-            title: 'Tiếp tục với Github',
+            title: 'Continue with Github',
             iconSrc: images.social.github.default,
         },
     ];
 
+    // Handle
+    const handleSignUp = () => {
+        setIsSignUp(!isSignUp);
+        setIsHandleAuthBtn(false);
+        setIsSignInWithEmail(false);
+    };
+
+    const handleAuthBtn = () => {
+        setIsHandleAuthBtn(true);
+    };
+
+    const handleSIWithEmail = () => {
+        setIsSignInWithEmail(!isSignInWithEmail);
+    };
+    // ------
+
+    // Set var init for page
     useEffect(() => {
         if (location.pathname.includes('/signup')) {
             document.title = `${appName} | Admin - Sign Up`;
+            setVarOfThisPage((prevState) => ({
+                ...prevState,
+                url: '/signup',
+                titlePage: 'Sign up',
+                titleForm: 'Sign up for an F8 account',
+                dontHaveAcc: {
+                    url: '/signin',
+                    title: 'Already have an account?',
+                    titleLink: 'Sign in',
+                },
+                childCpnent: <FormSignUp />,
+            }));
         } else {
             document.title = `${appName} | Admin - Sign In`;
+            setVarOfThisPage((prevState) => ({
+                ...prevState,
+                url: '/signin',
+                titlePage: 'Sign in',
+                titleForm: 'Sign in to V3D8',
+                dontHaveAcc: {
+                    url: '/signup',
+                    title: `Don't have an account yet?`,
+                    titleLink: 'Sign up',
+                },
+                childCpnent: <FormSignIn />,
+            }));
         }
     }, [location.pathname, appName]);
-
-    const handleSignUp = () => {
-        setIsSignUp(!isSignUp);
-        setIsHandleBtn(false);
-    };
-
-    const handleBtn = () => {
-        setIsHandleBtn(true);
-    };
+    // ------------------
 
     return (
-        <div>
+        <FormProvider data={{ isSignInWithEmail, handleSIWithEmail }}>
             <div className={cx('header')}>
                 <a href={process.env.REACT_APP_URL}>
                     <img className={cx('logo')} src={images.logoMini.default} alt="V3D8" />
                 </a>
-                <h1 className={cx('title')}>{isSignUp ? 'Đăng ký vào V3D8' : 'Đăng nhập vào V3D8'}</h1>
+                <h1 className={cx('title')}>{varOfThisPage.titleForm}</h1>
             </div>
             <div className={cx('body')}>
-                {!isHandleBtn ? (
-                    btnsAuth.map((btn, index) => {
-                        return (
-                            <div className={cx('main-step')}>
+                {!isHandleAuthBtn ? ( // chưa hanlde thì vào đây
+                    <div className={cx('main-step')}>
+                        {btnsAuth.map((btn, index) => {
+                            return (
                                 <AuthButton
                                     key={index}
                                     title={btn.title}
                                     srcIcon={btn.iconSrc}
                                     isSignUp={isSignUp}
-                                    onClick={handleBtn}
+                                    onClick={handleAuthBtn}
                                 />
-                            </div>
-                        );
-                    })
+                            );
+                        })}
+                    </div>
                 ) : (
-                    <FormSignIn />
+                    <div className={cx('form-body')}>{varOfThisPage.childCpnent}</div>
                 )}
                 <p className={cx('dont-have-acc')}>
-                    {isSignUp ? 'Bạn đã có tài khoản? ' : 'Bạn chưa có tài khoản? '}
-                    <Link to={isSignUp ? '/signin' : '/signup'} onClick={handleSignUp}>
-                        {isSignUp ? 'Đăng nhập' : 'Đăng ký'}
+                    {varOfThisPage.dontHaveAcc.title}
+                    <Link to={varOfThisPage.dontHaveAcc.url} onClick={handleSignUp}>
+                        {` ${varOfThisPage.dontHaveAcc.titleLink}`}
                     </Link>
                 </p>
+                {isSignInWithEmail && <p className={cx('forgot-password')}>Forgot your password?</p>}
             </div>
-        </div>
+        </FormProvider>
     );
 }
 

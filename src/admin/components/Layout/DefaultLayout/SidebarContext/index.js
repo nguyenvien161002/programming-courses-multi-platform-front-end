@@ -3,11 +3,8 @@ import { createContext } from 'react';
 const SidebarContext = createContext();
 
 function SidebarProvider({ children, data }) {
-
-    const {isMinimizeSidebar, toggleSidebar} = data;
-
     return (
-        <SidebarContext.Provider value={{isMinimizeSidebar, toggleSidebar}}>
+        <SidebarContext.Provider value={ data }>
             {children}
         </SidebarContext.Provider>
     );

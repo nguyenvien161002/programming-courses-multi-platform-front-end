@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
-function SigninButton({ title, srcIcon, isSignUp, onClick }) {
+function AuthButton({ title, srcIcon, isSignUp, onClick }) {
 
     useEffect(() => {
         
@@ -23,4 +23,4 @@ function SigninButton({ title, srcIcon, isSignUp, onClick }) {
     );
 }
 
-export default SigninButton;
+export default AuthButton;

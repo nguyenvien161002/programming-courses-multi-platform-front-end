@@ -21,23 +21,26 @@
             align-items: center;
             justify-content: center;
             margin-right: 14px;
-    
+
             .icon-nav-item {
                 font-size: 18px;
                 color: var(--admin-color-word-sidebar);
             }
         }
-        
+
+    }
+
+    &:hover {
+        background: var(--admin-bg-hover-nav-item);
     }
 
     &.active {
         background: var(--admin-bg-hover-nav-item);
-    
+
         .nav-link-sidebar .nav-item-title,
-        .wrapper-icon-nav .icon-nav-item  {
+        .wrapper-icon-nav .icon-nav-item {
             color: var(--white-color);
-            font-weight: 700;
         }
     }
-    
+
 }

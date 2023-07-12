@@ -30,6 +30,8 @@
 
 html {
     font-size: 62.5%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.15;
 }
 
 body {
@@ -40,7 +42,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 0.8rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -49,7 +51,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: #d9d9d9;
-    border-radius: 8px;
+    border-radius: 0.8rem;
 }
 
 ::-webkit-scrollbar-track:hover {
