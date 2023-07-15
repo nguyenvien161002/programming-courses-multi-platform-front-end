@@ -9,7 +9,7 @@ import classNames from 'classnames/bind';
 
 import { SidebarContext } from '../SidebarContext';
 import styles from './Sidebar.module.scss';
-import images from '~/admin/assets/images';
+import images from '~/assets/images';
 import Avatar from '~/admin/components/Avatar';
 import SidebarItem from './SidebarItem';
 

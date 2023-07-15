@@ -1,0 +1,37 @@
+.nav-item {
+
+    .nav-link-sidebar {
+        align-items: center;
+        background-color: #fff;
+        border-radius: 16px;
+        color: #404040;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 72px;
+        justify-content: center;
+        margin-top: 4px;
+        width: 72px;
+
+        &:hover {
+            background-color: #f5f5f5;
+            color: #1a1a1a;
+        }
+
+        .icon-nav-item {
+            font-size: 1.8rem;
+        }
+
+        .nav-item-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: .6rem;
+        }
+    }
+
+    .nav-link-sidebar.active {
+        background-color: #e8ebed;
+        color: #1a1a1a;
+    }
+
+}

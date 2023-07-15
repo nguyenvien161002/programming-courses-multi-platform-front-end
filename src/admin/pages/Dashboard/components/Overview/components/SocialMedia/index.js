@@ -3,7 +3,7 @@ import { faFacebookF, faInstagram, faTiktok, faTwitter, faYoutube } from '@forta
 import classNames from 'classnames/bind';
 
 import styles from './SocialMedia.module.scss';
-import images from '~/admin/assets/images';
+import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 

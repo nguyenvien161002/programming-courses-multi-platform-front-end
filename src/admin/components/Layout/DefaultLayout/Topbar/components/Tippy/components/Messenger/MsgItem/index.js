@@ -3,7 +3,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
 import styles from './MsgItem.module.scss';
-import images from '~/admin/assets/images';
+import images from '~/assets/images';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);

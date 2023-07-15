@@ -37,7 +37,6 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
-    line-height: 1.5;
     text-rendering: optimizeSpeed;
 }
 
@@ -59,8 +58,9 @@ body {
 }
 
 a {
-    text-decoration: none;
     color: #333;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 button {

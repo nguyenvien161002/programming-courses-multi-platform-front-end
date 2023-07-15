@@ -1,7 +1,6 @@
 import { faShoppingCart, faUser, faEye, faCircleNodes } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
-import styles from './Overview.module.scss';
 import Card from './components/Card';
 import ChartPayHistory from './components/ChartPayHistory';
 import TablePayHistory from './components/TablePayHistory';
@@ -9,13 +8,14 @@ import SocialMedia from './components/SocialMedia';
 import ChartGenaral from './components/ChartGenaral';
 import ChartCourses from './components/ChartCourses';
 import TableCourses from './components/TableCourses';
+import styles from './Overview.module.scss';
 
 const cx = classNames.bind(styles);
 
 function Overview() {
     return (
         <div className={cx('wrapper')}>
-            <section className={cx('genaral')}>
+            <section className={cx(['genaral', 'section'])}>
                 <Card
                     titleCard={'Orders'}
                     actualNumber={900}
@@ -65,13 +65,13 @@ function Overview() {
                     }}
                 />
             </section>
-            <section className={cx('chart-courses')}>
+            <section className={cx(['chart-courses', 'section'])}>
                 <ChartCourses />
             </section>
-            <section className={cx('table-courses')}>
+            <section className={cx(['table-courses', 'section'])}>
                 <TableCourses />
             </section>
-            <section className={cx('center')}>
+            <section className={cx(['center', 'section'])}>
                 <div className={cx('center-left')}>
                     <ChartGenaral />
                 </div>
@@ -79,10 +79,10 @@ function Overview() {
                     <SocialMedia />
                 </div>
             </section>
-            <section className={cx('chart-pay-history')}>
+            <section className={cx(['chart-pay-history', 'section'])}>
                 <ChartPayHistory />
             </section>
-            <section className={cx('table-pay-history')}>
+            <section className={cx(['table-pay-history', 'section'])}>
                 <TablePayHistory />
             </section>
         </div>

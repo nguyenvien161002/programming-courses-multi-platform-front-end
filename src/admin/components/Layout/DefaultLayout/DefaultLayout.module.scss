@@ -10,6 +10,7 @@
     --admin-sidebar-time-transition: 0.4s ease;
     --admin-content-pd-x: 2.4rem;
     display: flex;
+    line-height: 1.5;
 
     &.minimize-sidebar {
         --admin-sidebar-item-pd-x: 8px;
