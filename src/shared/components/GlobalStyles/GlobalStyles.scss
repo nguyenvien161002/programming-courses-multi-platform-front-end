@@ -38,6 +38,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
     text-rendering: optimizeSpeed;
+    -webkit-tap-highlight-color: transparent;
 }
 
 ::-webkit-scrollbar {

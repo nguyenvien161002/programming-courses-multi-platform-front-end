@@ -1,7 +1,9 @@
 .wrapper {
     --sidebar-width: 96px;
     --topbar-width: 66px;
-    background-color: #fff;
+    --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    background: #fff;
+    font-family: var(--system-ui);
 
     .container {
         flex: 1 1;
@@ -11,6 +13,7 @@
             margin-left: var(--sidebar-width);
             display: flex;
             min-height: 100vh;
+            flex: 1 1;
         }
     }
 }

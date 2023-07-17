@@ -1,0 +1,69 @@
+.wrapper {
+    --create-hover-color: #fe215e;
+    background: linear-gradient(to right, rgb(254, 33, 94), rgb(255, 148, 2));
+    display: flex;
+    border-radius: 16px;
+    height: 270px;
+    overflow: hidden;
+
+    .left {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-shrink: 0;
+        color: #fff;
+        font-size: 1.6rem;
+        line-height: 1.6;
+        max-width: 100%;
+        padding: 0 3.6rem 3.6rem;
+        width: 64rem;
+
+        .heading {
+            margin-bottom: 0.8rem;
+            margin-top: 2rem;
+
+            a {
+                color: #fff;
+                font-size: 3.2rem;
+                font-weight: 700;
+                line-height: 1.5;
+            }
+        }
+
+        .desc {
+            margin-bottom: 2.4rem;
+            margin-top: 0;
+            max-width: 60rem;
+        }
+
+        .create-btn {
+            border: 2px solid #fff;
+            border-radius: 1.6rem;
+            color: #fff;
+            display: inline-block;
+            font-size: 1.4rem;
+            font-weight: 700;
+            min-width: 12.4rem;
+            padding: 0.4rem 1.4rem;
+            text-align: center;
+            transition: .4s ease;
+            width: max-content;
+
+            &:hover {
+                background-color: #fff;
+                color: var(--create-hover-color);
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        flex: 3 1;
+        justify-content: flex-end;
+
+        .img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

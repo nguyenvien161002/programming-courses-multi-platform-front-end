@@ -21,6 +21,13 @@ const images = {
         facebook: require('~/assets/images/facebook.svg'),
         github: require('~/assets/images/github.svg'),
     },
+    banners: {
+        stuAchi: require('~/assets/images/banners/banner_01_Student_Achievement.png'),
+        reactjs: require('~/assets/images/banners/banner_02_ReactJS.png'),
+        youtube: require('~/assets/images/banners/banner_03_Youtube.png'),
+        facebook: require('~/assets/images/banners/banner_04_Facebook.png'),
+        htmlCssPro: require('~/assets/images/banners/banner_05_HTML_CSS_pro.png'),
+    },
 };
 
 export default images;
