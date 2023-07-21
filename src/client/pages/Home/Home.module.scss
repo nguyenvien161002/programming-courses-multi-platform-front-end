@@ -1,6 +1,11 @@
 .wrapper {
+    width: 100%;
     flex: 1 1;
     padding: 0 4rem 0 2rem;
+
+    .item {
+        width: 100%;
+    }
 
     .slide-show {
         margin-top: 1.8rem;

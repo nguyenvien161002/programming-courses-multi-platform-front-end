@@ -6,10 +6,7 @@ const cx = classNames.bind(styles);
 
 function SlideItem({ heading, desc, link, imgSrc, styles }) {
     return (
-        <div
-            className={cx('wrapper')}
-            style={styles}
-        >
+        <div className={cx('wrapper')} style={styles}>
             <div className={cx('left')}>
                 <h2 className={cx('heading')}>
                     <a rel="noreferrer noopener noreferrer" target="_blank" href={link.href}>
