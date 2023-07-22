@@ -10,7 +10,7 @@
 
     .title {
         padding-bottom: 1.6rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        border-bottom: .1rem solid rgba(0, 0, 0, 0.06);
         margin-bottom: 3rem;
         color: var(--icon-color);
         font-size: 1.6rem;
@@ -87,7 +87,7 @@
                     color: #8890b5;
                     font-weight: 500;
                     display: block;
-                    margin-bottom: 0.8rem;
+                    margin-bottom: .8rem;
                 }
 
                 .follower {
@@ -108,7 +108,7 @@
                 right: 0;
 
                 .img {
-                    width: 310px;
+                    width: 31rem;
                     height: auto;
                 }
             }

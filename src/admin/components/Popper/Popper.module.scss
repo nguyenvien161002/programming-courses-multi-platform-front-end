@@ -1,7 +1,7 @@
 .wrapper {
     min-width: 23.8rem;
-    border-radius: 0.8rem;
-    box-shadow: 0 -0.4rem 3.2rem rgba(0, 0, 0, .2);
+    border-radius: .8rem;
+    box-shadow: 0 -.4rem 3.2rem rgba(0, 0, 0, .2);
     color: #1d2129;
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateY(-8px);
+        transform: translateY(-.8rem);
     }
     100% {
         opacity: 1;

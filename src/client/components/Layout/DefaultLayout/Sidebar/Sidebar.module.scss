@@ -1,17 +1,18 @@
 .wrapper {
-    align-items: center;
     display: flex;
+    align-items: center;
     flex-direction: column;
     flex-shrink: 0;
     left: 0;
-    padding: 0 8px;
-    position: fixed;
+    padding: 0 .8rem;
+    position: sticky;
+    position: -webkit-sticky;
     top: 7.4rem;
     width: var(--sidebar-width);
-    z-index: 8;
+    z-index: 10;
 
     .sidebar-list {
-        margin-top: 1rem;
+        margin: 1rem 0;
         list-style-type: none;
         padding-left: 0;
     }

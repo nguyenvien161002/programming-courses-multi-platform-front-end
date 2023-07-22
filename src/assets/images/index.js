@@ -9,6 +9,10 @@ const images = {
     f8Avatar: require('~/assets/images/f8_avatar.png'),
     crush: require('~/assets/images/crush.jpg'),
     plane: require('~/assets/images/plane.png'),
+    crown: require('~/assets/images/crown.svg'),
+    dmca: require('~/assets/images/dmca.png'),
+    noAvatar: require('~/assets/images/fallback-no-avatar.jpg'),
+    crownIconCourse: require('~/assets/images/crown_icon_course.svg'),
     payments: {
         paypal: require('~/assets/images/payments/paypal.png'),
         cash: require('~/assets/images/payments/cash.png'),

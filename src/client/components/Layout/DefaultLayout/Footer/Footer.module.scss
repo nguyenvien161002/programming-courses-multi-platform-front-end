@@ -1,0 +1,118 @@
+.wrapper {
+    background-color: #181821;
+    color: #a9b3bb;
+    overflow: hidden;
+    padding: 6.8rem 0 4rem;
+
+    .column {
+        display: flex;
+        justify-content: center;
+
+        .column-top {
+            align-items: center;
+            display: flex;
+
+            .top-logo {
+                border-radius: .8rem;
+                height: 3.8rem;
+                margin-right: 1rem;
+                width: 3.8rem;
+            }
+
+            .top-slogan {
+                color: #fff;
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
+        }
+
+        .contact-list {
+            color: #a9b3bb;
+            font-size: 1.4rem;
+            line-height: 2.2rem;
+            position: relative;
+            margin: 1.4rem 0;
+
+            a {
+                color: #a9b3bb;
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+
+        .dmca {
+            margin-top: 2rem;
+        }
+
+        .heading {
+            color: #fff;
+            font-size: 1.8rem;
+            line-height: 1.6;
+            text-transform: uppercase;
+            margin-top: .6rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .list {
+            padding-left: 0;
+
+            li {
+                font-size: 1.4rem;
+                line-height: 2.2rem;
+                margin-bottom: .8rem;
+                position: relative;
+            }
+
+            a {
+                color: #a9b3bb;
+                cursor: pointer;
+                position: relative;
+                transition: .3s ease;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        align-items: baseline;
+        margin-top: 4.8rem;
+
+        .copyright {
+            font-size: 1.4rem;
+            margin: 1.4rem 0;
+        }
+
+        .social-list {
+            margin-left: auto;
+
+            .social-item {
+                font-size: 3.2rem;
+                margin-left: 1.6rem;
+
+                &:hover {
+                    opacity: .8;
+                }
+
+                &.youtube {
+                    color: #eb2c3b;
+                }
+
+                &.facebook {
+                    color: #4867aa;
+                }
+
+                &.tiktok {
+                    color: #cccccc;
+                    font-size: 2.8rem;
+                }
+            }
+        }
+
+    }
+}

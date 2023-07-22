@@ -6,13 +6,18 @@
     border-radius: 50%;
     color: #fff;
     cursor: pointer;
-    height: 44px;
+    height: 4.4rem;
     justify-content: center;
-    margin: 8px 0 2px;
+    margin: .8rem 0 .2rem;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 44px;
+    width: 4.4rem;
+
+    &:hover .icon {
+        -webkit-transform: scale(1.4);
+        transform: scale(1.4)
+    }
 
     .icon {
         font-size: 1.6rem;

@@ -1,5 +1,5 @@
 .wrapper {
-    padding: 0.8rem 2.4rem;
+    padding: .8rem 2.4rem;
 
     .user {
         display: flex;
@@ -21,7 +21,7 @@
             .abbreviation {
                 color: #757575;
                 font-size: 1.4rem;
-                margin-top: 0.4rem;
+                margin-top: .4rem;
             }
         }
 
@@ -29,8 +29,8 @@
 
     hr {
         border: none;
-        border-top: 1px solid rgba(0, 0, 0, .08);
-        margin: 0.8rem 0;
+        border-top: .1rem solid rgba(0, 0, 0, .08);
+        margin: .8rem 0;
     }
 
     .list {
@@ -43,7 +43,7 @@
             cursor: pointer;
             display: block;
             font-size: 1.4rem;
-            padding: 10px 0;
+            padding: 1rem 0;
             font-weight: 500;
         }
     }

@@ -30,12 +30,12 @@
 
         .mark-read-btn {
             background: transparent;
-            border-radius: 4px;
+            border-radius: .4rem;
             color: var(--primary-color);
             cursor: pointer;
             margin-left: auto;
             font-size: 1.4rem;
-            padding: 0.8rem 1.2rem;
+            padding: .8rem 1.2rem;
             white-space: nowrap;
 
             &:hover {
@@ -52,8 +52,8 @@
 
         hr {
             border: none;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            margin: 0 2rem 0.8rem 2rem;        
+            border-top: .1rem solid rgba(0, 0, 0, 0.08);
+            margin: 0 2rem .8rem 2rem;        
         }
     }
     

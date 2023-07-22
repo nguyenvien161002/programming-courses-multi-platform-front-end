@@ -8,8 +8,7 @@ import CreateBtn from './CreateBtn';
 const cx = classNames.bind(styles);
 
 function Sidebar() {
-
-    const appName = process.env.REACT_APP_NAME
+    const appName = process.env.REACT_APP_NAME;
 
     const arrSibaItems = [
         {
@@ -17,49 +16,51 @@ function Sidebar() {
             icon: faHome,
             to: '/',
             unique: '/home',
-            titlePage: 'Popular Programming Courses'
+            titlePage: 'Popular Programming Courses',
         },
         {
             title: 'Road',
             icon: faRoad,
             to: '/road',
             unique: '/road',
-            titlePage: 'Learning path for newbies'
+            titlePage: 'Learning path for newbies',
         },
         {
             title: 'Learn',
             icon: faLightbulb,
             to: '/learn',
             unique: '/learn',
-            titlePage: `List of programming courses at ${appName}`
+            titlePage: `List of programming courses at ${appName}`,
         },
         {
             title: 'Blog',
             icon: faNewspaper,
             to: '/blog',
             unique: '/blog',
-            titlePage: `List of blog about IT at ${appName}`
+            titlePage: `List of blog about IT at ${appName}`,
         },
     ];
 
     return (
-        <nav className={cx({ wrapper: true })}>
-            <CreateBtn />
-            <ul className={cx('sidebar-list')}>
-                {arrSibaItems.map((item, index) => {
-                    return (
-                        <SidebarItem
-                            key={index}
-                            title={item.title}
-                            icon={item.icon}
-                            to={item.to}
-                            unique={item.unique}
-                            titlePage={item.titlePage}
-                        />
-                    );
-                })}
-            </ul>
-        </nav>
+        <div>
+            <nav className={cx({ wrapper: true })}>
+                <CreateBtn />
+                <ul className={cx('sidebar-list')}>
+                    {arrSibaItems.map((item, index) => {
+                        return (
+                            <SidebarItem
+                                key={index}
+                                title={item.title}
+                                icon={item.icon}
+                                to={item.to}
+                                unique={item.unique}
+                                titlePage={item.titlePage}
+                            />
+                        );
+                    })}
+                </ul>
+            </nav>
+        </div>
     );
 }
 

@@ -1,16 +1,16 @@
 .nav-item {
     position: relative;
     padding: 0 var(--admin-sidebar-item-pd-x);
-    border-radius: 6px;
-    margin: 2px 0;
+    border-radius: .6rem;
+    margin: .2rem 0;
     transition: height 0.8s ease, background 0.8s ease;
 
     .nav-link-sidebar {
         display: flex;
-        padding: 12px 0;
+        padding: 1.2rem 0;
 
         .nav-item-title {
-            font-size: 14px;
+            font-size: 1.4rem;
             font-weight: 600;
             color: var(--admin-color-word-sidebar);
         }
@@ -20,10 +20,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 14px;
+            margin-right: 1.4rem;
 
             .icon-nav-item {
-                font-size: 18px;
+                font-size: 1.8rem;
                 color: var(--admin-color-word-sidebar);
             }
         }

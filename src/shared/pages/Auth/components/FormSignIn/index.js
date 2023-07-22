@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useState } from 'react';
+import { Fragment, useContext, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
 
 import { FormContext } from '../FormContext';
@@ -10,18 +10,18 @@ import styles from './FormSignIn.module.scss';
 const cx = classNames.bind(styles);
 
 function FormSignIn() {
-    const valPhNumber = {
+    const valPhNumber = useMemo(() => ({
         type: ['text', 'number'],
         name: ['phone', 'phone_code'],
         placeholder: ['Phone number', 'Enter the confirmation code'],
         labelGroup: ['Phone number', 'Sign in with email'],
-    };
-    const valEmailAddr = {
+    }), []);
+    const valEmailAddr = useMemo(() => ({
         type: ['email', 'password'],
         name: ['email', 'password'],
         placeholder: ['Email address', 'Enter the password'],
         labelGroup: ['Email', 'Sign in with your phone number'],
-    };
+    }), []);
     const [isType, setIsType] = useState(valPhNumber.type);
     const [isName, setIsName] = useState(valPhNumber.name);
     const [isPlaceholder, setIsPlaceholder] = useState(valPhNumber.placeholder);
@@ -47,8 +47,8 @@ function FormSignIn() {
     };
 
     const handleSubmit = () => {
-        console.log("isPhone: " + isPhone);
-        console.log("isPhoneCode: " + isPhoneCode);
+        console.log('isPhone: ' + isPhone);
+        console.log('isPhoneCode: ' + isPhoneCode);
     };
 
     useEffect(() => {
@@ -63,7 +63,7 @@ function FormSignIn() {
             setIsPlaceholder(valPhNumber.placeholder);
             setIsLabelGroup(valPhNumber.labelGroup);
         }
-    }, [isSignInWithEmail]);
+    }, [isSignInWithEmail, valEmailAddr, valPhNumber]);
 
     return (
         <Fragment>

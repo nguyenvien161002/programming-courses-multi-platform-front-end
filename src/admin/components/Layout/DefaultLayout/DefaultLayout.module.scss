@@ -1,20 +1,20 @@
 .wrapper {
     --admin-bg-hover-nav-item: linear-gradient(to right, #00f3bf, #00badf);
     --admin-color-word-sidebar: #554ab7;
-    --admin-sidebar-weight: 260px;
-    --admin-top-height: 66px;
+    --admin-sidebar-weight: 26rem;
+    --admin-top-height: 6.6rem;
     --admin-border-color: #e8ebed;
-    --admin-sidebar-item-pd-x: 16px;
-    --admin-sidebar-nav-mr-x: 20px;
-    --admin-sidebar-item-min-width-icon: 34px;
+    --admin-sidebar-item-pd-x: 1.6rem;
+    --admin-sidebar-nav-mr-x: 2rem;
+    --admin-sidebar-item-min-width-icon: 3.4rem;
     --admin-sidebar-time-transition: 0.4s ease;
     --admin-content-pd-x: 2.4rem;
     display: flex;
     line-height: 1.5;
 
     &.minimize-sidebar {
-        --admin-sidebar-item-pd-x: 8px;
-        --admin-sidebar-nav-mr-x: 10px;
+        --admin-sidebar-item-pd-x: .8rem;
+        --admin-sidebar-nav-mr-x: 1rem;
         --admin-sidebar-weight: calc(var(--admin-sidebar-item-pd-x)*2 + var(--admin-sidebar-nav-mr-x)*2 + var(--admin-sidebar-item-min-width-icon));
     }
 
@@ -39,7 +39,7 @@
             color: var(--icon-color);
 
             .icon-heart {
-                margin-left: 0.4rem;
+                margin-left: .4rem;
             }
         }
     }

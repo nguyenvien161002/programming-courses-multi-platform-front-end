@@ -5,18 +5,18 @@
     align-items: center;
     padding: 3.6rem;
     border-radius: 0.8rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: .1rem solid rgba(0, 0, 0, 0.1);
     font-family: inherit;
     transform: background, var(--admin-sidebar-time-transition);
 
     .title-card {
         font-size: 1.6rem;
-        margin-bottom: 0.8rem;
+        margin-bottom: .8rem;
     }
 
     .title-goals {
         font-size: 1.4rem;
-        margin-top: 0.8rem;
+        margin-top: .8rem;
         color: #a7afb7;
         margin-top: var(--commonly-utilized-sizes);
         text-align: center;
@@ -31,7 +31,7 @@
     }
 
     .goals-number {
-        margin-top: 0.8rem;
+        margin-top: .8rem;
     }
 
     .actual-number,

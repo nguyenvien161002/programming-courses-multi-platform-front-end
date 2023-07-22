@@ -1,8 +1,8 @@
 .wrapper {
     --commonly-utilized-sizes: 2.4rem;
-    --commonly-utilized-border: 1px solid rgba(0, 0, 0, 0.1);
+    --commonly-utilized-border: .1rem solid rgba(0, 0, 0, 0.1);
     --container-mr-bottom: 2rem;
-    --container-border-radius: 0.8rem;
+    --container-border-radius: .8rem;
     padding: var(--commonly-utilized-sizes) 0;
 
     .section {

@@ -42,7 +42,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 0.8rem;
+    width: .8rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -74,6 +74,10 @@ button {
     text-transform: none;
 }
 
+ul {
+    list-style-type: none;
+}
+
 button,
 input,
 optgroup,
@@ -83,4 +87,15 @@ textarea {
     font-size: 100%;
     line-height: 1.15;
     margin: 0;
+}
+
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+    font-weight: 600;
 }

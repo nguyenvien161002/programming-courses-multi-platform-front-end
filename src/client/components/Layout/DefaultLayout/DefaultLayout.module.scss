@@ -1,16 +1,16 @@
 .wrapper {
-    --sidebar-width: 96px;
-    --topbar-width: 66px;
+    --sidebar-width: 9.6rem;
+    --topbar-width: 6.6rem;
     --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     background: #fff;
     font-family: var(--system-ui);
 
     .container {
-        flex: 1 1;
         display: flex;
+        flex: 1 1;
+        min-height: 100vh;
 
         .content {
-            margin-left: var(--sidebar-width);
             display: flex;
             min-height: 100vh;
             flex: 1 1;

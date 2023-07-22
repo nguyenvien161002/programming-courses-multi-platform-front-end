@@ -1,13 +1,13 @@
 .wrapper {
-    width: 420px;
-    height: 40px;
+    width: 42rem;
+    height: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #e8e8e8;
-    border-radius: 20px;
+    border: .1rem solid #e8e8e8;
+    border-radius: 2rem;
     flex: 1;
-    padding: 0 16px 0 8px;
+    padding: 0 1.6rem 0 .8rem;
     transition: border-color .2s ease-in-out;
 
 
@@ -16,12 +16,12 @@
         background-image: url(../../../../../../../assets/images/search-icon.svg);
         background-position: 50%;
         background-repeat: no-repeat;
-        background-size: 18px;
+        background-size: 1.8rem;
         border-radius: 50%;
-        height: 32px;
-        opacity: 0.7;
+        height: 3.2rem;
+        opacity: .7;
         transition: opacity 0.2s ease-in-out;
-        width: 32px;
+        width: 3.2rem;
     }
 
     .input {
@@ -30,6 +30,6 @@
         flex: 1;
         height: 100%;
         outline: none;
-        padding: 0 4px;
+        padding: 0 .4rem;
     }
 }

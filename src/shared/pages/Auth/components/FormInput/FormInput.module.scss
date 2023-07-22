@@ -19,17 +19,17 @@
             display: block;
             font-size: 1.4rem;
             font-weight: 600;
-            padding: 0.8rem 0 0.8rem 0.8rem;
+            padding: .8rem 0 .8rem .8rem;
             line-height: 1.4;
         }
     }
 
     .input-wrapper {
         background: rgba(22, 24, 35, .06);
-        border: 1px solid rgba(22, 24, 35, .06);
-        border-radius: 44px;
+        border: .1rem solid rgba(22, 24, 35, .06);
+        border-radius: 4.4rem;
         display: flex;
-        height: 44px;
+        height: 4.4rem;
         overflow: hidden;
 
         input {
@@ -39,18 +39,18 @@
             flex: 1 1;
             font-size: 1.4rem;
             outline: none;
-            padding: 12px 20px;
+            padding: 1.2rem 2rem;
         }
 
         .right-btn {
             align-items: center;
-            border-radius: 44px;
+            border-radius: 4.4rem;
             display: flex;
             font-size: 1.4rem;
             font-weight: 600;
             justify-content: center;
-            margin: 1px;
-            min-width: 140px;
+            margin: .1rem;
+            min-width: 14rem;
             white-space: nowrap;
             background-color: #ccc;
             color: #757575;
@@ -60,7 +60,7 @@
 
     .inside-input {
         height: 100%;
-        padding: 0 8px 0 16px;
+        padding: 0 .8rem 0 1.6rem;
         position: relative;
         color: #292929;
         cursor: pointer;
@@ -80,15 +80,15 @@
                 content: "";
                 height: 70%;
                 position: absolute;
-                right: -8px;
+                right: -.8rem;
                 top: 50%;
                 -webkit-transform: translateY(-50%);
                 transform: translateY(-50%);
-                width: 1px;
+                width: .1rem;
             }
 
             .icon {
-                margin-left: 10px;
+                margin-left: 1rem;
             }
         }
     }
