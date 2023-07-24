@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
-import { Wrapper as PopperWrapper } from '~/admin/components/Popper';
+import { Wrapper as PopperWrapper } from '~/shared/components/Popper';
 import { styles } from '../Styles';
 import Content from './Content';
 import Avatar from '~/admin/components/Avatar';

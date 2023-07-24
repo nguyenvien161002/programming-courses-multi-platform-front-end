@@ -9,6 +9,9 @@
     padding: 0 1.6rem 0 .8rem;
     transition: border-color .2s ease-in-out;
 
+    &:focus-within {
+        border-color: #444;
+    }
 
     .search-icon {
         background-color: #fff;

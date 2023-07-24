@@ -2,14 +2,14 @@ import { useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
-import { Wrapper as PopperWrapper } from '~/admin/components/Popper';
+import { Wrapper as PopperWrapper } from '~/shared/components/Popper';
 import { styles } from '../Styles';
 import Content from './Content';
 import Avatar from '~/admin/components/Avatar';
 
 const cx = classNames.bind(styles);
 
-function TippyUserMenu() {
+function UserMenu() {
     const [visible, setVisible] = useState(false);
     const show = () => setVisible(true);
     const hide = () => setVisible(false);
@@ -36,4 +36,4 @@ function TippyUserMenu() {
     );
 }
 
-export default TippyUserMenu;
+export default UserMenu;

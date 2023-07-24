@@ -39,6 +39,14 @@ const images = {
         frontEnd: require('~/assets/images/road/road-front-end.png'),
         backEnd: require('~/assets/images/road/road-back-end.png'),
     },
+    courses: {
+        jsBase: require('~/assets/images/courses/js-base.png'),
+        jsAdvance: require('~/assets/images/courses/js-advance.png'),
+        responsive: require('~/assets/images/courses/responsive.png'),
+        nodeExpressJs: require('~/assets/images/courses/node-expressjs.png'),
+        htmlCSS: require('~/assets/images/courses/html-css.png'),
+        knowledgeBase: require('~/assets/images/courses/knowledge-base.png'),
+    }
 };
 
 export default images;
