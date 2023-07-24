@@ -5,7 +5,7 @@ import NotifiItem from '../NotifiItem';
 
 const cx = classNames.bind(styles);
 
-function Notification() {
+function Content() {
     return (
         <div className={cx('wrapper')} style={{'--width-tippy': '38rem'}}>
             <header>
@@ -26,4 +26,4 @@ function Notification() {
     );
 }
 
-export default Notification;
+export default Content;

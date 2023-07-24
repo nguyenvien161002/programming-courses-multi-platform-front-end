@@ -13,6 +13,7 @@ const images = {
     dmca: require('~/assets/images/dmca.png'),
     noAvatar: require('~/assets/images/fallback-no-avatar.jpg'),
     crownIconCourse: require('~/assets/images/crown_icon_course.svg'),
+    fbGroupCards: require('~/assets/images/fb-group-cards.png'),
     payments: {
         paypal: require('~/assets/images/payments/paypal.png'),
         cash: require('~/assets/images/payments/cash.png'),
@@ -31,6 +32,12 @@ const images = {
         youtube: require('~/assets/images/banners/banner_03_Youtube.png'),
         facebook: require('~/assets/images/banners/banner_04_Facebook.png'),
         htmlCssPro: require('~/assets/images/banners/banner_05_HTML_CSS_pro.png'),
+        htmlcssProTopic: require('~/assets/images/banners/banner_01_topic.png'),
+        youtubeTopic: require('~/assets/images/banners/banner_02_topic.png'),
+    },
+    road: {
+        frontEnd: require('~/assets/images/road/road-front-end.png'),
+        backEnd: require('~/assets/images/road/road-back-end.png'),
     },
 };
 

@@ -1,10 +1,12 @@
+import { DefaultLayoutAuth } from '~/shared/components/Layout';
 import { DefaultLayoutClient } from '~/client/components/Layout';
-import { DefaultLayoutAdmin, DefaultLayoutAuth } from '~/admin/components/Layout';
+import { DefaultLayoutAdmin } from '~/admin/components/Layout';
 import Category from '~/admin/pages/Category';
 import Courses from '~/admin/pages/Courses';
 import Dashboard from '~/admin/pages/Dashboard';
 import Documentation from '~/admin/pages/Documentation';
 import Notification from '~/admin/pages/Notification';
+import Messenger from '~/admin/pages/Messenger';
 import Orders from '~/admin/pages/Orders';
 import Reports from '~/admin/pages/Reports';
 import Settings from '~/admin/pages/Settings';
@@ -33,6 +35,7 @@ const publicRoutes = [
     { path: '/admin/support', component: Support, layout: DefaultLayoutAdmin },
     { path: '/admin/documentation', component: Documentation, layout: DefaultLayoutAdmin },
     { path: '/admin/notification', component: Notification, layout: DefaultLayoutAdmin },
+    { path: '/admin/messenger', component: Messenger, layout: DefaultLayoutAdmin },
     { path: '/admin/dashboard/goals', component: Dashboard, layout: DefaultLayoutAdmin },
     { path: '/admin/dashboard/revenue', component: Dashboard, layout: DefaultLayoutAdmin },
 ];

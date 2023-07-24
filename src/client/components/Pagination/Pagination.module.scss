@@ -1,0 +1,45 @@
+.wrapper {
+    align-items: center;
+    display: flex;
+    font-size: 1.4rem;
+    justify-content: center;
+    margin-top: 2rem;
+    position: relative;
+
+    .pages {
+        align-items: center;
+        display: flex;
+        padding: 0 1rem;
+
+        .page {
+            border: .1rem solid #fff;
+            border-radius: .6rem;
+            cursor: pointer;
+            display: flex;
+            font-weight: 500;
+            transition: all .2s;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            margin-right: .4rem;
+            padding: .6rem 1.2rem;
+
+            &:hover {
+                border: .1rem solid #d0d7de;
+            }
+
+            &.active {
+                background-color: var(--primary-color);
+                border: .1rem solid var(--primary-color);
+                color: var(--white-color);
+            }
+
+            &.disabled {
+                border: .1rem solid #fff;
+                color: #d0d7de;
+                cursor: default;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,24 @@
+.btn {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--white-color);
+    border: .1rem solid var(--primary-color);
+    border-radius: 99.9rem !important;
+    color: var(--primary-color);
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    outline: none;
+    padding: .9rem 1.6rem;
+    text-align: center;
+    transition: .3s ease;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+
+    &:hover {
+        opacity: .8;
+        cursor: pointer;
+    }
+}

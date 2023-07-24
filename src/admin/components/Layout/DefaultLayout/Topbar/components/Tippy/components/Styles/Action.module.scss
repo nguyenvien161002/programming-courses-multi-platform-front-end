@@ -50,10 +50,33 @@
         overflow-y: auto;
         overscroll-behavior: contain;
 
-        hr {
-            border: none;
-            border-top: .1rem solid rgba(0, 0, 0, 0.08);
-            margin: 0 2rem .8rem 2rem;        
+        &.messenger {
+            max-height: 51.6vh;
+        }
+    }
+
+    hr {
+        border: none;
+        border-top: .1rem solid rgba(0, 0, 0, 0.08);
+        margin: 0 2rem .8rem 2rem;        
+    }
+
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1.6rem .8rem 1.6rem;
+
+        .btn-open-msg {
+            text-align: center;
+            padding: 0.8rem 1.6rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            border-radius: .4rem;
+
+            &:hover {
+                background: #f1f1f1;
+            }
         }
     }
     

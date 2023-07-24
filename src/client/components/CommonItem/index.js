@@ -28,7 +28,7 @@ function CommonItem(props) {
     return (
         <div className={cx('wrapper')}>
             <Link className={cx(['link', 'has-link'])} title={title} to={landing_page_url}>
-                <button className={cx('btn')}>Xem khóa học</button>
+                <button className={cx('btn')}>View course</button>
                 <img className={cx('thumb')} src={image_url} alt={title} />
                 {is_pro === true && (
                     <div className={cx('pro-icon')}>

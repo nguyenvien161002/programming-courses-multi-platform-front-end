@@ -1,0 +1,109 @@
+.wrapper {
+    border: .2rem solid #e8e8e8;
+    border-radius: 1.6rem;
+    padding: 2.4rem;
+
+    &+.wrapper {
+        margin-top: 1.6rem;
+    }
+
+    .header,
+    .body,
+    .header .author {
+        align-items: center;
+        display: flex;
+    }
+
+    .header {
+        justify-content: space-between;
+
+        .actions {
+            color: #757575;
+            display: flex;
+            font-size: 1.6rem;
+            margin-right: -.8rem;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            .optionBtn {
+                cursor: pointer;
+                padding: .4rem .8rem;
+                color: #757575;
+
+                &:hover {
+                    color: #292929;
+                }
+            }
+        }
+
+        .author {
+
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            span {
+                color: #292929;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-left: .8rem;
+            }
+        }
+    }
+
+    .body {
+
+        .info {
+            font-size: 1.4rem;
+            flex: 1 1;
+            padding-right: 3.2rem;
+
+            .title {
+                color: #292929;
+                font-size: 2rem;
+                font-weight: 700;
+                line-height: 1.6;
+                margin-bottom: 0;
+                margin-top: .8rem;
+            }
+
+            .desc {
+                color: #505050;
+                font-size: 1.5rem;
+                line-height: 1.6;
+                margin-top: .4rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .info {
+                flex: 1 1;
+                padding-right: 3.2rem;
+            }
+
+            .dot {
+                margin: 0 .8rem;
+            }
+        }
+
+        .thumb {
+            flex-shrink: 0;
+
+            img {
+                background: #ebebeb;
+                border-radius: 1.5rem;
+                color: #757575;
+                display: block;
+                font-size: 1.4rem;
+                line-height: 1.8;
+                max-height: 12rem;
+                object-fit: cover;
+                overflow: hidden;
+                text-align: center;
+                width: 20rem;
+            }
+        }
+    }
+}

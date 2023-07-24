@@ -16,14 +16,14 @@ function ScrollList({ title, isNew, courses, subHeading, toViewAll, titleViewAll
             <div>
                 {subHeading && (
                     <p className={cx('sub-heading')}>
-                        <strong>333.934+</strong> người khác đã học
+                        <strong>333.934+</strong> others have learned
                     </p>
                 )}
                 <div className={cx('heading-wrap')}>
                     <h2 className={cx('heading')}>
                         <Link target="_self" to={toViewAll}>
                             {title}
-                            <span className={cx({ 'label-new': true, 'd-none': !isNew })}>Mới</span>
+                            <span className={cx({ 'label-new': true, 'd-none': !isNew })}>New</span>
                         </Link>
                     </h2>
                     {toViewAll && (

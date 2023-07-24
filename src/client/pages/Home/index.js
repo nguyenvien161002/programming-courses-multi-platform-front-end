@@ -1,8 +1,8 @@
 import classNames from 'classnames/bind';
 
+import ScrollList from '~/client/components/ScrollList';
 import SlideShow from './components/SlideShow';
 import styles from './Home.module.scss';
-import ScrollList from './components/ScrollList';
 import images from '~/assets/images';
 
 const cx = classNames.bind(styles);

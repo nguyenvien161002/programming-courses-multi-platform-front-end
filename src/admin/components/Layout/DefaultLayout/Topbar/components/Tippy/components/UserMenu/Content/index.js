@@ -6,7 +6,7 @@ import Avatar from '~/admin/components/Avatar';
 
 const cx = classNames.bind(styles);
 
-function UserMenu() {
+function Content() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('user')}>
@@ -69,4 +69,4 @@ function UserMenu() {
     );
 }
 
-export default UserMenu;
+export default Content;

@@ -1,0 +1,48 @@
+.suggestion-box {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+    overflow: hidden;
+
+    .info {
+        width: 40rem;
+
+        h2 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            line-height: 1.6;
+            margin: 2rem 0;
+        }
+
+        p {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin: 1.4rem 0;
+        }
+
+        .cta {
+            border: .2rem solid #292929;
+            border-radius: 99.9rem;
+            color: #292929;
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: .8rem;
+            padding: 1rem 1.6rem;
+            text-align: center;
+            transition: .2s ease;
+
+            &:hover {
+                background-color: #292929;
+                color: #fff;
+            }
+        }
+    }
+
+    .image img {
+        position: relative;
+        right: -4.4rem;
+        width: 42rem;
+    }
+}

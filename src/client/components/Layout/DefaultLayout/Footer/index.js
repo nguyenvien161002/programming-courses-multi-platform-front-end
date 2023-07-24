@@ -13,7 +13,7 @@ const cxGrid = classNames.bind(GridStyles);
 function Footer() {
     return (
         <footer className={cx('wrapper')}>
-            <section className={cxGrid(['grid', 'wide'])} style={{ 'max-width': '110rem' }}>
+            <section className={cxGrid(['grid', 'wide'])} style={{ 'maxWidth': '110rem' }}>
                 <section className={cxGrid('row')}>
                     <section className={cxGrid(['col', 'c-12', 'm-12', 'l-3'])}>
                         <div className={cx('column')}>

@@ -1,0 +1,65 @@
+.body {
+
+    .left-layout {
+        padding: 0 6.4rem 4.4rem 0;
+    }
+
+    .topics-list-wrapper {
+
+        h3 {
+            color: #757575;
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.8;
+            text-transform: uppercase;
+            margin: 1.4rem 0;
+        }
+
+        .topics {
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 1.4rem;
+            padding-left: 0;
+            margin: 1.4rem 0;
+
+            a {
+                background-color: #f2f2f2;
+                border-radius: 3rem;
+                color: #333;
+                display: block;
+                font-weight: 500;
+                line-height: 1.8;
+                margin: 0 .8rem .8rem 0;
+                padding: .6rem 1.6rem;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        }
+    }
+
+    .brands-wrapper {
+        position: sticky;
+        position: -webkit-sticky;
+        top: var(--sticky);
+        display: flex;
+        justify-content: var(--align, flex-end);
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            max-width: 30rem;
+        }
+
+        .banner {
+            margin-top: 3.2rem;
+
+            img {
+                border-radius: .8rem;
+                max-width: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+    }
+}
