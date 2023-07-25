@@ -35,7 +35,7 @@ function Topbar() {
                     <Link to={'/'} className={cx('back-home')}>
                         <h4 className={cx('heading-back')}>
                             <FontAwesomeIcon icon={faChevronLeft} className={cx('icon')} />
-                            <span>Quay lại</span>
+                            <span>Back</span>
                         </h4>
                     </Link>
                 )}

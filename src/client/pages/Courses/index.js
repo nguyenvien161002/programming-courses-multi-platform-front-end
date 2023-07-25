@@ -4,12 +4,12 @@ import Container from '~/client/components/Container';
 import TopContent from '~/client/components/TopContent';
 import ScrollList from '~/client/components/ScrollList';
 import BottomContent from '~/client/components/BottomContent';
-import styles from './Learn.module.scss';
+import styles from './Courses.module.scss';
 import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
-function Learn() {
+function Courses() {
     const proCourses = [
         {
             id: 15,
@@ -397,14 +397,14 @@ function Learn() {
     return (
         <Container>
             <TopContent
-                heading={'Course'}
+                heading={'Courses'}
                 desc={`The courses are designed to be suitable for both newbies, many courses are free, 
                 quality, the content is easy to understand.`}
             />
             <div className={cx('body')}>
                 <ScrollList
                     isNew={true}
-                    title={'Pro Course'}
+                    title={'Pro Courses'}
                     courses={proCourses}
                     subHeading={false}
                     toViewAll={''}
@@ -412,7 +412,7 @@ function Learn() {
                 />
                 <ScrollList
                     isNew={false}
-                    title={'Free Course'}
+                    title={'Free Courses'}
                     courses={freeCourses}
                     subHeading={true}
                     toViewAll={'/learning-paths'}
@@ -431,4 +431,4 @@ function Learn() {
     );
 }
 
-export default Learn;
+export default Courses;

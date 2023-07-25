@@ -3,7 +3,6 @@ import classNames from 'classnames/bind';
 
 import Avatar from '~/client/components/Avatar';
 import styles from './SearchItem.module.scss';
-import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 

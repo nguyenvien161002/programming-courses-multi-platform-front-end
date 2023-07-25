@@ -19,17 +19,17 @@ function Sidebar() {
             titlePage: 'Popular Programming Courses',
         },
         {
-            title: 'Road',
+            title: 'Path',
             icon: faRoad,
-            to: '/road',
-            unique: '/road',
+            to: '/learning-paths',
+            unique: '/learning-paths',
             titlePage: 'Learning path for newbies',
         },
         {
             title: 'Learn',
             icon: faLightbulb,
-            to: '/learn',
-            unique: '/learn',
+            to: '/courses',
+            unique: '/courses',
             titlePage: `List of programming courses at ${appName}`,
         },
         {

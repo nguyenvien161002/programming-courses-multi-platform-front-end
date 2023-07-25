@@ -1,0 +1,167 @@
+.container {
+    padding: 0 4rem 0 2rem;
+}
+
+.wrapper {
+    margin-top: 2.4rem;
+    padding: 0 4.4rem 6.8rem;
+    min-height: 100vh;
+
+    .course-name {
+        font-size: 3.2rem;
+        font-weight: 700;
+        margin-top: 1.6rem;
+        min-height: 3.3rem;
+        margin-bottom: 2.14rem;
+    }
+
+    .text-content {
+        color: rgba(0, 0, 0, .8);
+        font-size: 1.4rem;
+        line-height: 1.6;
+    }
+
+    .topic-list {
+        .topic-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3.6rem 0 .4rem;
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            padding-left: 0;
+
+            &.column {
+                flex-direction: column;
+            }
+
+            li {
+                color: var(--text-color);
+                flex-basis: 50%;
+                font-size: 1.4rem;
+                line-height: 1.6;
+                margin-bottom: 1.2rem;
+                padding: 0 2.4rem;
+                position: relative;
+            }
+
+            .icon {
+                color: var(--primary-color);
+                font-size: 1.4rem;
+                left: 0;
+                position: absolute;
+                top: .4rem;
+            }
+        }
+    }
+
+    .purchse-badge {
+        align-items: center;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 6rem;
+        margin-left: 2.4rem;
+        padding-bottom: 2rem;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 9rem;
+
+        .img-preview {
+            border-radius: 1.6rem;
+            margin: .2rem 0 2rem;
+            overflow: hidden;
+            position: relative;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            width: calc(100% - .2rem);
+
+            &::after {
+                background-image: linear-gradient(180deg, rgba(30, 30, 28, 0), rgba(30, 30, 28, .9));
+                bottom: 0;
+                content: "";
+                display: block;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: all .3s linear;
+            }
+
+            .icon {
+                color: var(--white-color);
+                font-size: 6rem;
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                transition: all .3s linear;
+                z-index: 1;
+            }
+
+            .bg {
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                padding-top: 56.25%;
+                width: 100%;
+            }
+
+            p {
+                bottom: 0;
+                color: var(--white-color);
+                font-size: 1.6rem;
+                font-weight: 600;
+                left: 0;
+                position: absolute;
+                right: 0;
+                text-align: center;
+                width: 100%;
+                z-index: 1;
+                margin: 1.6rem 0;
+            }
+        }
+
+        h5 {
+            color: var(--primary-color);
+            font-size: 3.2rem;
+            font-weight: 400;
+            margin: 0 auto;
+            opacity: .8;
+        }
+
+        .learn-now {
+            font-size: 1.6rem;
+            margin-top: 1.6rem;
+            min-width: 18rem;
+            padding: 1rem 1.6rem;
+        }
+
+        ul {
+            display: inline-block;
+            margin: 0;
+            padding: 2.4rem 0 1rem .4rem;
+            text-align: left;
+
+            li {
+                color: #494949;
+                font-size: 1.4rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+                padding-left: 3.5rem;
+                position: relative;
+            }
+
+            li .icon {
+                left: 0;
+                position: absolute;
+                top: .4rem;
+            }
+        }
+    }
+}

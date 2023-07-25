@@ -21,4 +21,9 @@
         opacity: .8;
         cursor: pointer;
     }
+
+    &.primary {
+        background-color: var(--primary-color);
+        color: var(--white-color);
+    }
 }

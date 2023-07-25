@@ -2,7 +2,7 @@ import { DefaultLayoutAuth } from '~/shared/components/Layout';
 import { DefaultLayoutClient } from '~/client/components/Layout';
 import { DefaultLayoutAdmin } from '~/admin/components/Layout';
 import Category from '~/admin/pages/Category';
-import Courses from '~/admin/pages/Courses';
+import CoursesAdmin from '~/admin/pages/Courses';
 import Dashboard from '~/admin/pages/Dashboard';
 import Documentation from '~/admin/pages/Documentation';
 import Notification from '~/admin/pages/Notification';
@@ -13,20 +13,25 @@ import Settings from '~/admin/pages/Settings';
 import Support from '~/admin/pages/Support';
 import Users from '~/admin/pages/Users';
 import Home from '~/client/pages/Home';
-import Road from '~/client/pages/Road';
-import Learn from '~/client/pages/Learn';
+import Path from '~/client/pages/Path';
+import Courses from '~/client/pages/Courses';
+import CourseDetail from '~/client/pages/CourseDetail';
 import Blog from '~/client/pages/Blog';
 import Auth from '~/shared/pages/Auth';
 
 const publicRoutes = [
+    // CLIENT
     { path: '/', component: Home, layout: DefaultLayoutClient },
-    { path: '/road', component: Road, layout: DefaultLayoutClient },
-    { path: '/learn', component: Learn, layout: DefaultLayoutClient },
+    { path: '/learning-paths', component: Path, layout: DefaultLayoutClient },
+    { path: '/courses', component: Courses, layout: DefaultLayoutClient },
+    { path: '/courses/:slug', component: CourseDetail, layout: DefaultLayoutClient },
     { path: '/blog', component: Blog, layout: DefaultLayoutClient },
+    // AUTH
     { path: '/signin', component: Auth, layout: DefaultLayoutAuth },
     { path: '/signup', component: Auth, layout: DefaultLayoutAuth },
+    // ADMIN
     { path: '/admin/', component: Dashboard, layout: DefaultLayoutAdmin },
-    { path: '/admin/courses', component: Courses, layout: DefaultLayoutAdmin },
+    { path: '/admin/courses', component: CoursesAdmin, layout: DefaultLayoutAdmin },
     { path: '/admin/users', component: Users, layout: DefaultLayoutAdmin },
     { path: '/admin/orders', component: Orders, layout: DefaultLayoutAdmin },
     { path: '/admin/category', component: Category, layout: DefaultLayoutAdmin },

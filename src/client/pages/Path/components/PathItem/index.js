@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import Button from '~/client/components/Button';
-import styles from './RoadItem.module.scss';
+import styles from './PathItem.module.scss';
 
 const cx = classNames.bind(styles);
 
-function RoadItem({ title, desc, srcThumb, to }) {
+function PathItem({ title, desc, srcThumb, to }) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('body')}>
@@ -36,4 +36,4 @@ function RoadItem({ title, desc, srcThumb, to }) {
     );
 }
 
-export default RoadItem;
+export default PathItem;

@@ -3,7 +3,7 @@ import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
 import { Wrapper as PopperWrapper } from '~/shared/components/Popper';
-import Content from './Content';
+import Content from './components/Content';
 import style from './Search.module.scss';
 
 const cx = classNames.bind(style);
