@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import { SidebarProvider } from './SidebarContext';
@@ -9,6 +11,12 @@ import styles from './DefaultLayout.module.scss';
 const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location.pathname]);
+
     return (
         <SidebarProvider data={''}>
             <div className={cx({ wrapper: true })}>

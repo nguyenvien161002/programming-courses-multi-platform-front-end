@@ -6,8 +6,7 @@ import styles from './FormInput.module.scss';
 
 const cx = classNames.bind(styles);
 
-function FormInput({ withStyles, ...inputProps }) {
-
+function FormInput({ withStyles, isValid, disabledSendCode, ...inputProps }) {
     return (
         <div className={cx('wrapper')}>
             {withStyles.labelGroup && (
@@ -23,7 +22,7 @@ function FormInput({ withStyles, ...inputProps }) {
                     </label>
                 </div>
             )}
-            <div className={cx('input-wrapper')}>
+            <div className={cx('input-wrapper', isValid ? 'input-error' : '')}>
                 {withStyles.insideInputTop && (
                     <div className={cx('inside-input')}>
                         <div className={cx('label')}>
@@ -34,7 +33,7 @@ function FormInput({ withStyles, ...inputProps }) {
                 )}
                 <input {...inputProps} />
                 {withStyles.insideInputBottom && (
-                    <div className={cx('right-btn')}>
+                    <div className={cx('send-code-btn', disabledSendCode ? 'disabled' : '')}>
                         <span>Send code</span>
                     </div>
                 )}

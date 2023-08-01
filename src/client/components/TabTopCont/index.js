@@ -1,10 +1,10 @@
 import classNames from 'classnames/bind';
 
-import styles from './TopContent.module.scss';
+import styles from './TabTopCont.module.scss';
 
 const cx = classNames.bind(styles);
 
-function TopContent({ heading, desc, style }) {
+function TabTopCont({ heading, desc, style }) {
     return (
         <div className={cx('wrapper')}>
             <h1 className={cx('heading')}>{heading}</h1>
@@ -15,4 +15,4 @@ function TopContent({ heading, desc, style }) {
     );
 }
 
-export default TopContent;
+export default TabTopCont;

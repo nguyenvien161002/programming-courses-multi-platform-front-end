@@ -18,6 +18,7 @@ import Courses from '~/client/pages/Courses';
 import CourseDetail from '~/client/pages/CourseDetail';
 import Blog from '~/client/pages/Blog';
 import Auth from '~/shared/pages/Auth';
+import Learning from '~/client/pages/Learning';
 
 const publicRoutes = [
     // CLIENT
@@ -26,6 +27,7 @@ const publicRoutes = [
     { path: '/courses', component: Courses, layout: DefaultLayoutClient },
     { path: '/courses/:slug', component: CourseDetail, layout: DefaultLayoutClient },
     { path: '/blog', component: Blog, layout: DefaultLayoutClient },
+    { path: '/learning', component: Learning },
     // AUTH
     { path: '/signin', component: Auth, layout: DefaultLayoutAuth },
     { path: '/signup', component: Auth, layout: DefaultLayoutAuth },

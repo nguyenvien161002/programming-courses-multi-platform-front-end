@@ -32,6 +32,11 @@
         height: 4.4rem;
         overflow: hidden;
 
+        &:focus-within {
+            border-color: rgba(22, 24, 35, .25);
+            caret-color: var(--primary-color);
+        }
+
         input {
             background-color: transparent;
             border: none;
@@ -42,7 +47,13 @@
             padding: 1.2rem 2rem;
         }
 
-        .right-btn {
+        input::placeholder {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .send-code-btn {
             align-items: center;
             border-radius: 4.4rem;
             display: flex;
@@ -52,10 +63,24 @@
             margin: .1rem;
             min-width: 14rem;
             white-space: nowrap;
+            transform: translate(.03rem, .03rem);
+        }
+
+        .send-code-btn:not(.disabled) {
+            background-color: var(--primary-color);
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .send-code-btn.disabled {
             background-color: #ccc;
             color: #757575;
             cursor: not-allowed;
         }
+    }
+
+    .input-wrapper.input-error {
+        border-color: red;
     }
 
     .inside-input {

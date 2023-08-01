@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
 
 import Container from '~/client/components/Container';
-import TopContent from '~/client/components/TopContent';
+import TabTopCont from '~/client/components/TabTopCont';
 import ScrollList from '~/client/components/ScrollList';
-import BottomContent from '~/client/components/BottomContent';
+import TopBotCont from '~/client/components/TabBotCont';
 import styles from './Courses.module.scss';
 import images from '~/assets/images';
 
@@ -396,7 +396,7 @@ function Courses() {
 
     return (
         <Container>
-            <TopContent
+            <TabTopCont
                 heading={'Courses'}
                 desc={`The courses are designed to be suitable for both newbies, many courses are free, 
                 quality, the content is easy to understand.`}
@@ -418,13 +418,13 @@ function Courses() {
                     toViewAll={'/learning-paths'}
                     titleViewAll={'View Road'}
                 />
-                <BottomContent
+                <TopBotCont
                     title={'Looking for a learning path for newbies?'}
                     titleBtn={'View learning path'}
                     desc={`The courses are designed for beginners, the learning path is clear, 
                     the content is easy to understand.`}
                     srcThumb={images.fbGroupCards}
-                    href={'https://www.facebook.com/groups/f8official'}
+                    to={'/learning-paths'}
                 />
             </div>
         </Container>

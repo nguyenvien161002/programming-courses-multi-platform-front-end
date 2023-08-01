@@ -3216,6 +3216,10 @@ function CourseDetail() {
         },
     };
 
+    const handleRegisterCourse = () => {
+        console.log("Onclick register course!!!");
+    }
+
     return (
         slug === 'javascript-co-ban' && (
             <div className={cx('container')}>
@@ -3270,7 +3274,12 @@ function CourseDetail() {
                                     <p>Xem giới thiệu khóa học</p>
                                 </div>
                                 <h5>Miễn phí</h5>
-                                <Button title={'ĐĂNG KÝ HỌC'} clsOfBtn={'primary'} cls={`${cx('learn-now')}`} />
+                                <Button 
+                                    title={'ĐĂNG KÝ HỌC'} 
+                                    clsBtnArr={['primary']} 
+                                    cls={`${cx('learn-now')}`} 
+                                    onClick={handleRegisterCourse}
+                                />
                                 <ul>
                                     <li>
                                         <FontAwesomeIcon icon={faGaugeHigh} className={cx('icon')} />

@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
-import styles from './BottomContent.module.scss';
+import styles from './TopBotCont.module.scss';
 
 const cx = classNames.bind(styles);
 
-function BottomContent({ title, desc, titleBtn, srcThumb, href, to }) {
+function TopBotCont({ title, desc, titleBtn, srcThumb, href, to }) {
     let Cpn = 'a';
     const attri = {};
 
     if (href) {
         attri.href = href;
+        attri.target = "_blank";
+        attri.rel="noopener";
     }
 
     if (to) {
@@ -25,9 +27,7 @@ function BottomContent({ title, desc, titleBtn, srcThumb, href, to }) {
                 <p>{desc}</p>
                 <Cpn
                     className={cx('cta')}
-                    target="_blank"
                     {...attri}
-                    rel="noopener"
                 >
                     {titleBtn}
                 </Cpn>
@@ -39,4 +39,4 @@ function BottomContent({ title, desc, titleBtn, srcThumb, href, to }) {
     );
 }
 
-export default BottomContent;
+export default TopBotCont;

@@ -6,10 +6,10 @@ import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Button({ title, href, to, onClick, clsOfBtn, cls, style, props }) {
+function Button({ title, href, to, onClick, clsBtnArr = [], cls, style, props }) {
     let Component = 'button';
     const attr = {
-        ...props
+        ...props,
     };
 
     if (href) {
@@ -28,7 +28,7 @@ function Button({ title, href, to, onClick, clsOfBtn, cls, style, props }) {
 
     return (
         <Fragment>
-            <Component {...attr} className={`${cx('btn', clsOfBtn)} ${cls}`} style={style}>
+            <Component {...attr} className={`${cx('btn', ...clsBtnArr)} ${cls}`} style={style}>
                 {title}
             </Component>
         </Fragment>

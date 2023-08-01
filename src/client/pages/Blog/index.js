@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import { GridStyles } from '~/shared/components/GridStyles';
 import Container from '~/client/components/Container';
-import TopContent from '~/client/components/TopContent';
+import TabTopCont from '~/client/components/TabTopCont';
 import styles from './Blog.module.scss';
 import PostItem from './components/PostItem';
 import images from '~/assets/images';
@@ -446,7 +446,7 @@ function Blog() {
 
     return (
         <Container>
-            <TopContent
+            <TabTopCont
                 heading={'Featured Articles'}
                 desc={`Summary of articles sharing experiences of self-learning online programming and web programming techniques.`}
             />
