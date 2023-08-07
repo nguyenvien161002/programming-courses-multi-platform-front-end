@@ -1,38 +1,49 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
-// import classNames from 'classnames/bind';
+import { useEffect, useMemo, useState } from 'react';
+import { useFormik } from 'formik';
+import classNames from 'classnames/bind';
 
+import { schemasSUWE, schemasSUWP } from '~/shared/schemas';
 import FormControl from '../FormControl';
 import FormInput from '../FormInput';
 import SubmitBtnAuth from '../SubmitBtnAuth';
-// import styles from './FormSignUp.module.scss';
+import styles from './FormSignUp.module.scss';
 
-// const cx = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
 function FormSignUp() {
-    const valPhNumber = useMemo(() => ({
-        type: ['text', 'number'],
-        name: ['phone', 'phone_code'],
-        placeholder: ['Phone number', 'Enter the confirmation code'],
-        labelGroup: ['Phone number', 'Sign up with email'],
-    }), []);
-    const valEmailAddr = useMemo(() => ({
-        type: ['email', 'password'],
-        name: ['email', 'password'],
-        placeholder: ['Email address', 'Enter the password'],
-        labelGroup: ['Email', 'Sign up with your phone number'],
-    }), []);
+    const valPhNumber = useMemo(
+        () => ({
+            type: ['text', 'number'],
+            name: ['phone', 'phone_code'],
+            placeholder: ['Phone number', 'Enter the confirmation code'],
+            labelGroup: ['Phone number', 'Sign up with email'],
+        }),
+        [],
+    );
+    const valEmailAddr = useMemo(
+        () => ({
+            type: ['email', 'password'],
+            name: ['email', 'password'],
+            placeholder: ['Email address', 'Enter the password'],
+            labelGroup: ['Email', 'Sign up with your phone number'],
+        }),
+        [],
+    );
 
     const [isType, setIsType] = useState(valPhNumber.type);
     const [isName, setIsName] = useState(valPhNumber.name);
+    const [isValue, setIsValue] = useState('');
     const [isPlaceholder, setIsPlaceholder] = useState(valPhNumber.placeholder);
     const [isLabelGroup, setIsLabelGroup] = useState(valPhNumber.labelGroup);
     const [isSignInWithEmail, setIsSignInWithEmail] = useState(false);
 
     const handleLabelRight = () => {
+        resetForm();
         setIsSignInWithEmail(!isSignInWithEmail);
     };
 
     useEffect(() => {
+        setIsValue('');
         if (isSignInWithEmail) {
             setIsName(valEmailAddr.name);
             setIsType(valEmailAddr.type);
@@ -46,13 +57,35 @@ function FormSignUp() {
         }
     }, [isSignInWithEmail, valEmailAddr, valPhNumber]);
 
+    const { values, errors, touched, isValid, dirty, resetForm, handleSubmit, handleBlur, handleChange } = useFormik({
+        initialValues: {
+            display_name: '',
+            [isName[0]]: '',
+            [isName[1]]: '',
+            ...(isSignInWithEmail ? { email_code: '' } : {}),
+        },
+        validationSchema: isSignInWithEmail ? schemasSUWE : schemasSUWP,
+        onSubmit: (values) => {
+            values = {
+                display_name: values.display_name,
+                [isName[0]]: values[isName[0]],
+                [isName[1]]: values[isName[1]],
+                ...(isSignInWithEmail ? { email_code: values.email_code } : {}),
+            };
+            console.log(JSON.stringify(values, null, 2));
+        },
+    });
+
     return (
-        <Fragment>
+        <form onSubmit={handleSubmit} autoComplete="off" encType="multipart/form-data">
             <FormControl>
                 <FormInput
+                    value={values.display_name || isValue}
                     type={'text'}
                     placeholder={'Your first and last name'}
                     name={'display_name'}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
                     withStyles={{
                         labelGroup: {
                             left: 'Your name',
@@ -62,13 +95,20 @@ function FormSignUp() {
                         insideInputTop: false,
                         insideInputBottom: false,
                     }}
+                    isValid={!!touched.display_name ? errors.display_name !== undefined : false}
                 />
+                {errors.display_name && touched.display_name && (
+                    <span className={cx('message-error')}>{errors.display_name}</span>
+                )}
             </FormControl>
             <FormControl>
                 <FormInput
+                    value={values[isName[0]] || isValue}
                     type={isType[0]}
                     placeholder={isPlaceholder[0]}
                     name={isName[0]}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
                     withStyles={{
                         labelGroup: {
                             left: isLabelGroup[0],
@@ -78,34 +118,54 @@ function FormSignUp() {
                         insideInputTop: !isSignInWithEmail,
                         insideInputBottom: false,
                     }}
+                    isValid={!!touched[isName[0]] ? errors[isName[0]] !== undefined : false}
                 />
+                {errors[isName[0]] && touched[isName[0]] && (
+                    <span className={cx('message-error')}>{errors[isName[0]]}</span>
+                )}
             </FormControl>
             <FormControl>
                 <FormInput
+                    value={values[isName[1]]|| isValue}
                     type={isType[1]}
                     placeholder={isPlaceholder[1]}
                     name={isName[1]}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
                     withStyles={{
                         labelGroup: false,
                         insideInputTop: false,
                         insideInputBottom: !isSignInWithEmail,
                     }}
+                    isValid={!!touched[isName[1]] ? errors[isName[1]] !== undefined : false}
+                    disabledSendCode={!!touched[isName[0]] ? errors[isName[0]] !== undefined : true}
                 />
+                {errors[isName[1]] && touched[isName[1]] && (
+                    <span className={cx('message-error')}>{errors[isName[1]]}</span>
+                )}
             </FormControl>
             <FormControl display={!isSignInWithEmail}>
                 <FormInput
+                    value={values.email_code || isValue}
                     type={'number'}
                     placeholder={'Enter the confirmation code'}
                     name={'email_code'}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
                     withStyles={{
                         labelGroup: false,
                         insideInputTop: false,
                         insideInputBottom: isSignInWithEmail,
                     }}
+                    isValid={!!touched.email_code ? errors.email_code !== undefined : false}
+                    disabledSendCode={!!touched.email_code ? errors.email_code !== undefined : true}
                 />
+                {errors.email_code && touched.email_code && (
+                    <span className={cx('message-error')}>{errors.email_code}</span>
+                )}
             </FormControl>
-            <SubmitBtnAuth title={'Sign up'} />
-        </Fragment>
+            <SubmitBtnAuth title={'Sign up'} type={'submit'} disabled={!isValid || !dirty} />
+        </form>
     );
 }
 

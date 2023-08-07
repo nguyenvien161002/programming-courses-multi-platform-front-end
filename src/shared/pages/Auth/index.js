@@ -29,29 +29,7 @@ function Auth() {
             titleLink: '',
         },
     });
-    const btnsAuth = [
-        {
-            id: 1,
-            title: 'Use email/phone number',
-            iconSrc: images.social.personal.default,
-        },
-        {
-            id: 2,
-            title: 'Continue with Google',
-            iconSrc: images.social.google.default,
-        },
-        {
-            id: 3,
-            title: 'Continue with Facebook',
-            iconSrc: images.social.facebook.default,
-        },
-        {
-            id: 4,
-            title: 'Continue with Github',
-            iconSrc: images.social.github.default,
-        },
-    ];
-
+    
     // Handle
     const handleSignUp = () => {
         setIsSignUp(!isSignUp);
@@ -59,14 +37,53 @@ function Auth() {
         setIsSignInWithEmail(false);
     };
 
-    const handleAuthBtn = () => {
-        setIsHandleAuthBtn(!isHandleAuthBtn);
-    };
-
     const handleSIWithEmail = () => {
         setIsSignInWithEmail(!isSignInWithEmail);
     };
-    // ------
+
+    const handleBtnPhoneNumber = () => {
+        setIsHandleAuthBtn(!isHandleAuthBtn);
+    };
+
+    const handleBtnGoogle = () => {
+        console.log('Google');
+    }
+
+    const handleBtnFacebook = () => {
+        console.log('Facebook');
+    }
+
+    const handleBtnGithub = () => {
+        console.log('Github');
+    }
+
+    // Array of buttons
+    const btnsAuth = [
+        {
+            id: 1,
+            title: 'Use email/phone number',
+            iconSrc: images.social.personal.default,
+            onClick: handleBtnPhoneNumber
+        },
+        {
+            id: 2,
+            title: 'Continue with Google',
+            iconSrc: images.social.google.default,
+            onClick: handleBtnGoogle
+        },
+        {
+            id: 3,
+            title: 'Continue with Facebook',
+            iconSrc: images.social.facebook.default,
+            onClick: handleBtnFacebook
+        },
+        {
+            id: 4,
+            title: 'Continue with Github',
+            iconSrc: images.social.github.default,
+            onClick: handleBtnGithub
+        },
+    ];
 
     // Set var init for page
     useEffect(() => {
@@ -100,12 +117,11 @@ function Auth() {
             }));
         }
     }, [location.pathname, appName]);
-    // ------------------
 
     return (
         <FormProvider data={{ isSignInWithEmail, handleSIWithEmail }}>
             {isHandleAuthBtn && (
-                <div className={cx('back-btn')} onClick={handleAuthBtn}>
+                <div className={cx('back-btn')} onClick={handleBtnPhoneNumber}>
                     <FontAwesomeIcon icon={faChevronLeft} />
                 </div>
             )}
@@ -125,7 +141,7 @@ function Auth() {
                                     title={btn.title}
                                     srcIcon={btn.iconSrc}
                                     isSignUp={isSignUp}
-                                    onClick={btn.id === 1 ? handleAuthBtn : null}
+                                    onClick={btn.onClick}
                                 />
                             );
                         })}

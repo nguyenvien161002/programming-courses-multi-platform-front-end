@@ -87,7 +87,7 @@ function FormSignIn() {
                         insideInputTop: !isSignInWithEmail,
                         insideInputBottom: false,
                     }}
-                    isValid={!!touched[isName[0]] ? errors[isName[0]] != undefined : false}
+                    isValid={!!touched[isName[0]] ? errors[isName[0]] !== undefined : false}
                 />
                 {errors[isName[0]] && touched[isName[0]] && (
                     <span className={cx('message-error')}>{errors[isName[0]]}</span>
@@ -106,8 +106,8 @@ function FormSignIn() {
                         insideInputTop: false,
                         insideInputBottom: !isSignInWithEmail,
                     }}
-                    isValid={!!touched[isName[1]] ? errors[isName[1]] != undefined : false}
-                    disabledSendCode={!!touched[isName[0]] ? errors[isName[0]] != undefined : true}
+                    isValid={!!touched[isName[1]] ? errors[isName[1]] !== undefined : false}
+                    disabledSendCode={!!touched[isName[0]] ? errors[isName[0]] !== undefined : true}
                 />
                 {errors[isName[1]] && touched[isName[1]] && (
                     <span className={cx('message-error')}>{errors[isName[1]]}</span>
