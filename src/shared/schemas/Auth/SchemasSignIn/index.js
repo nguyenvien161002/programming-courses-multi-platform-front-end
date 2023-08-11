@@ -8,7 +8,7 @@ const schemasSIWP = Yup.object().shape({
         .required('Phone number is required !'),
     phone_code: Yup.string()
         .matches(/^\d{6}$/, 'Phone code must be exactly 6 digits')
-        .required('Confirmation code is required !')
+        .required('Confirmation code is required !'),
 });
 
 const schemasSIWE = Yup.object().shape({

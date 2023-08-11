@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
@@ -10,7 +8,7 @@ import Content from './Content';
 
 const cx = classNames.bind(styles);
 
-function Messenger() {
+function MyCourses() {
     const [visible, setVisible] = useState(false);
     const show = () => setVisible(true);
     const hide = () => setVisible(false);
@@ -30,11 +28,11 @@ function Messenger() {
                 </PopperWrapper>
             )}
         >
-            <div className={cx('action-item')}>
-                <FontAwesomeIcon icon={faFacebookMessenger} onClick={visible ? hide : show}/>
+            <div className={cx('action-item')} onClick={visible ? hide : show}>
+                <button className={cx('btn-my-courses')}>My Courses</button>
             </div>
         </Tippy>
     );
 }
 
-export default Messenger;
+export default MyCourses;

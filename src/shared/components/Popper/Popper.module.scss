@@ -8,8 +8,8 @@
     overflow: hidden;
     will-change: opacity, transform;
     background: var(--white-color);
-    transition: all var(--admin-sidebar-time-transition);
-    animation: fadeIn var(--admin-sidebar-time-transition);
+    transition: all .4s ease;
+    animation: fadeIn .4s ease;
 }
 
 @keyframes fadeIn {

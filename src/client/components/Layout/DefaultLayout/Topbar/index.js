@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
+import { currentUserSelector } from '~/shared/redux/auth'
 import Search from './components/Search';
+import MyCourses from './components/MyCourses';
+import Notification from './components/Notification';
+import UserMenu from './components/UserMenu';
 import styles from './Topbar.module.scss';
 import images from '~/assets/images';
 
@@ -14,9 +19,13 @@ function Topbar() {
     const urlApp = process.env.REACT_APP_URL;
     const location = useLocation();
     const [isBackHome, setIsBackHome] = useState(false);
-    
+    const currentUser =
+        useSelector(currentUserSelector) || localStorage.getItem('currentUser')
+            ? JSON.parse(localStorage.getItem('currentUser'))
+            : null;
+
     useEffect(() => {
-        if(location.pathname !== '/') { 
+        if (location.pathname !== '/') {
             setIsBackHome(true);
         } else {
             setIsBackHome(false);
@@ -44,9 +53,23 @@ function Topbar() {
                 <Search />
             </div>
             <div className={cx('actions', 'item')}>
-                <Link to={'/signin'} className={cx('login-btn')}>
-                    Sign in
-                </Link>
+                {currentUser !== null ? (
+                    <>
+                        <div>
+                            <MyCourses />
+                        </div>
+                        <div>
+                            <Notification />
+                        </div>
+                        <div className={cx('avatar-wrapper')}>
+                            <UserMenu />
+                        </div>
+                    </>
+                ) : (
+                    <Link to={'/signin'} className={cx('login-btn')}>
+                        Sign in
+                    </Link>
+                )}
             </div>
         </div>
     );

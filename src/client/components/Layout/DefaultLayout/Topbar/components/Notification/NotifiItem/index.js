@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 
 import styles from './NotifiItem.module.scss';
-import images from '~/admin/assets/images';
+import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 

@@ -1,0 +1,65 @@
+.my-courses-item {
+    border-radius: 1rem;
+    display: flex;
+    margin: 0 .8rem;
+    padding: .8rem 1.2rem;
+    transition: background-color .3s;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, .05);
+        cursor: pointer;
+    }
+
+    .course-thumb {
+        background-color: #ebebeb;
+        border-radius: .8rem;
+        display: block;
+        line-height: 6.7rem;
+        min-height: 6.7rem;
+        text-align: center;
+        width: 12rem;
+    }
+
+    .course-info {
+        flex: 1 1;
+        margin-left: 1.2rem;
+    }
+
+    .course-title {
+        font-size: 1.4rem;
+        margin: .6rem 0 0;
+
+        a {
+            color: var(--text-color);
+        }
+    }
+
+    .last-completed {
+        color: #666;
+        font-size: 1.2rem;
+        margin: .4rem 0 0;
+    }
+
+    .process-bar {
+        background-color: #ddd;
+        background-color: var(--bg-color, #ddd);
+        border-radius: .4rem;
+        height: .8rem;
+        margin-top: .8rem;
+        overflow: hidden;
+        position: relative;
+
+        &::after {
+            background-color: var(--primary-color);
+            background-color: var(--color, var(--primary-color));
+            bottom: 0;
+            content: "";
+            display: block;
+            left: 0;
+            position: absolute;
+            top: 0;
+            transition: width 1s ease;
+            width: var(--progress);
+        }
+    }
+}

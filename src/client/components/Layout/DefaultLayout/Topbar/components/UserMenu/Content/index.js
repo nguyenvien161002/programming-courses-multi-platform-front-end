@@ -1,17 +1,26 @@
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames/bind';
 
+import { authSlice } from '~/shared/redux/auth';
 import styles from './Content.module.scss';
 import Avatar from '~/admin/components/Avatar';
 
 const cx = classNames.bind(styles);
 
 function UserMenu() {
+    const dispatch = useDispatch();
+
+    const handleSignOut = () => {
+        dispatch(authSlice.actions.signOut(null));
+        localStorage.removeItem('currentUser');
+    };
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('user')}>
                 <div className={cx('avatar-wrapper')}>
-                    <Avatar fontSize={"0.56rem"} />
+                    <Avatar fontSize={'0.56rem'} />
                 </div>
                 <div className={cx('info')}>
                     <span className={cx('username')}>NGUYỄN VĂN VIÊN</span>
@@ -55,14 +64,9 @@ function UserMenu() {
                     </Link>
                 </li>
                 <li>
-                    <Link className={cx('item')} to="/signin">
-                        Sign in
-                    </Link>
-                </li>
-                <li>
-                    <Link className={cx('item')} to="/admin/@nguyenvanvien1">
+                    <div className={cx('item')} onClick={handleSignOut}>
                         Sign out
-                    </Link>
+                    </div>
                 </li>
             </ul>
         </div>

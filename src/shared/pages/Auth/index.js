@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
+import { auth, provider } from '~/config';
+import { signInWithPopup } from 'firebase/auth';
 import { FormProvider } from './components/FormContext';
+import { authSlice } from '~/shared/redux/auth';
 import AuthButton from './components/AuthButton';
 import FormSignIn from './components/FormSignIn';
 import FormSignUp from './components/FormSignUp';
@@ -15,6 +19,8 @@ const cx = classNames.bind(styles);
 
 function Auth() {
     const location = useLocation();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const appName = process.env.REACT_APP_NAME;
     const [isSignUp, setIsSignUp] = useState(false);
     const [isHandleAuthBtn, setIsHandleAuthBtn] = useState(false);
@@ -29,7 +35,7 @@ function Auth() {
             titleLink: '',
         },
     });
-    
+
     // Handle
     const handleSignUp = () => {
         setIsSignUp(!isSignUp);
@@ -46,16 +52,36 @@ function Auth() {
     };
 
     const handleBtnGoogle = () => {
-        console.log('Google');
-    }
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const newUser = {
+                    displayName: result.user.displayName,
+                    email: result.user.email,
+                    emailVerified: result.user.emailVerified,
+                    isAnonymous: result.user.isAnonymous,
+                    phoneNumber: result.user.phoneNumber,
+                    photoURL: result.user.photoURL,
+                };
+                dispatch(
+                    authSlice.actions.signInWithGoogle({
+                        ...newUser,
+                    }),
+                );
+                localStorage.setItem('currentUser', JSON.stringify(newUser));
+                navigate('/');
+            })
+            .catch((error) => {
+                console.log('SignInWithPopup: ' + error);
+            });
+    };
 
     const handleBtnFacebook = () => {
         console.log('Facebook');
-    }
+    };
 
     const handleBtnGithub = () => {
         console.log('Github');
-    }
+    };
 
     // Array of buttons
     const btnsAuth = [
@@ -63,25 +89,25 @@ function Auth() {
             id: 1,
             title: 'Use email/phone number',
             iconSrc: images.social.personal.default,
-            onClick: handleBtnPhoneNumber
+            onClick: handleBtnPhoneNumber,
         },
         {
             id: 2,
             title: 'Continue with Google',
             iconSrc: images.social.google.default,
-            onClick: handleBtnGoogle
+            onClick: handleBtnGoogle,
         },
         {
             id: 3,
             title: 'Continue with Facebook',
             iconSrc: images.social.facebook.default,
-            onClick: handleBtnFacebook
+            onClick: handleBtnFacebook,
         },
         {
             id: 4,
             title: 'Continue with Github',
             iconSrc: images.social.github.default,
-            onClick: handleBtnGithub
+            onClick: handleBtnGithub,
         },
     ];
 

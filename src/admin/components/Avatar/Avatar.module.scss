@@ -1,4 +1,6 @@
 .avatar-wrapper {
+    width: 9em;
+    height: 9em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,9 +11,9 @@
     font-size: var(--font-size);
 
     .avatar {
+        width: inherit;
+        height: inherit;
         border-radius: 50%;
-        height: 9em;
         object-fit: cover;
-        width: 9em;
     }
 }

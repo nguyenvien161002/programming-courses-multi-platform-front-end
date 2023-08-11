@@ -30,7 +30,7 @@ function UserMenu() {
             )}
         >
             <div onClick={visible ? hide : show}>
-                <Avatar fontSize={'0.4rem'} />
+                <Avatar fontSize={'0.32rem'} />
             </div>
         </Tippy>
     );

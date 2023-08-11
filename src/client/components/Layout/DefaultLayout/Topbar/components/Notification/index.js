@@ -30,7 +30,7 @@ function Notification() {
                 </PopperWrapper>
             )}
         >
-            <div className={cx('action-item')} onClick={visible ? hide : show}>
+            <div className={cx('action-item')} style={{'--commonly-utilized-sizes': '2rem'}} onClick={visible ? hide : show}>
                 <FontAwesomeIcon icon={faBell} />
             </div>
         </Tippy>
