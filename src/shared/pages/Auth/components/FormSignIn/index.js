@@ -1,9 +1,8 @@
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useFormik } from 'formik';
 import classNames from 'classnames/bind';
 
 import { schemasSIWP, schemasSIWE } from '~/shared/schemas';
-import { FormContext } from '../FormContext';
 import FormInput from '../FormInput';
 import FormControl from '../FormControl';
 import SubmitBtnAuth from '../SubmitBtnAuth';
@@ -30,11 +29,9 @@ function FormSignIn() {
     const [isPlaceholder, setIsPlaceholder] = useState(valPhNumber.placeholder);
     const [isLabelGroup, setIsLabelGroup] = useState(valPhNumber.labelGroup);
     const [isSignInWithEmail, setIsSignInWithEmail] = useState(false);
-    const { handleSIWithEmail } = useContext(FormContext);
 
     const handleLabelRight = () => {
         resetForm();
-        handleSIWithEmail();
         setIsSignInWithEmail(!isSignInWithEmail);
     };
 

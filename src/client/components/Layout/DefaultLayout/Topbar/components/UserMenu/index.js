@@ -5,11 +5,11 @@ import classNames from 'classnames/bind';
 import { Wrapper as PopperWrapper } from '~/shared/components/Popper';
 import { styles } from '../Styles';
 import Content from './Content';
-import Avatar from '~/admin/components/Avatar';
+import Avatar from '~/client/components/Avatar';
 
 const cx = classNames.bind(styles);
 
-function UserMenu() {
+function UserMenu({ srcAvatar }) {
     const [visible, setVisible] = useState(false);
     const show = () => setVisible(true);
     const hide = () => setVisible(false);
@@ -30,7 +30,7 @@ function UserMenu() {
             )}
         >
             <div onClick={visible ? hide : show}>
-                <Avatar fontSize={'0.32rem'} />
+                <Avatar src={srcAvatar} fontSize={'0.32rem'} />
             </div>
         </Tippy>
     );

@@ -1,4 +1,3 @@
-import { DefaultLayoutAuth } from '~/shared/components/Layout';
 import { DefaultLayoutClient } from '~/client/components/Layout';
 import { DefaultLayoutAdmin } from '~/admin/components/Layout';
 import Category from '~/admin/pages/Category';
@@ -17,7 +16,6 @@ import Path from '~/client/pages/Path';
 import Courses from '~/client/pages/Courses';
 import CourseDetail from '~/client/pages/CourseDetail';
 import Blog from '~/client/pages/Blog';
-import Auth from '~/shared/pages/Auth';
 import Learning from '~/client/pages/Learning';
 
 const publicRoutes = [
@@ -28,9 +26,6 @@ const publicRoutes = [
     { path: '/courses/:slug', component: CourseDetail, layout: DefaultLayoutClient },
     { path: '/blog', component: Blog, layout: DefaultLayoutClient },
     { path: '/learning', component: Learning },
-    // AUTH
-    { path: '/signin', component: Auth, layout: DefaultLayoutAuth },
-    { path: '/signup', component: Auth, layout: DefaultLayoutAuth },
     // ADMIN
     { path: '/admin/', component: Dashboard, layout: DefaultLayoutAdmin },
     { path: '/admin/courses', component: CoursesAdmin, layout: DefaultLayoutAdmin },

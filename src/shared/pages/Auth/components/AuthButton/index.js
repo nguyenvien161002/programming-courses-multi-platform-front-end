@@ -1,16 +1,10 @@
 import classNames from 'classnames/bind';
 
 import styles from './AuthButton.module.scss';
-import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
-function AuthButton({ title, srcIcon, isSignUp, onClick }) {
-
-    useEffect(() => {
-        
-    }, [isSignUp])
-
+function AuthButton({ title, srcIcon, onClick }) {
     return (
         <div className={cx('wrapper')} onClick={onClick}>
             <img

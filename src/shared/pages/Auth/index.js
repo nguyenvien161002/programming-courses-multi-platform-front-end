@@ -1,14 +1,10 @@
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { Fragment } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 
-import { auth, provider } from '~/config';
+import { auth, provider } from '~/config/firebase';
 import { signInWithPopup } from 'firebase/auth';
-import { FormProvider } from './components/FormContext';
-import { authSlice } from '~/shared/redux/auth';
+import { authSlice, getContentModal, getSignInWithEmail, getSignInWithNumberPhone } from '~/shared/redux/auth';
 import AuthButton from './components/AuthButton';
 import FormSignIn from './components/FormSignIn';
 import FormSignUp from './components/FormSignUp';
@@ -17,40 +13,15 @@ import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
+// đang làm lại cái management state cho form đăng nhập
+
 function Auth() {
-    const location = useLocation();
-    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const appName = process.env.REACT_APP_NAME;
-    const [isSignUp, setIsSignUp] = useState(false);
-    const [isHandleAuthBtn, setIsHandleAuthBtn] = useState(false);
-    const [isSignInWithEmail, setIsSignInWithEmail] = useState(false);
-    const [varOfThisPage, setVarOfThisPage] = useState({
-        url: '',
-        titlePage: '',
-        titleForm: '',
-        dontHaveAcc: {
-            url: '',
-            title: '',
-            titleLink: '',
-        },
-    });
+    const contentModal = useSelector(getContentModal);
+    const signInWithEmail = useSelector(getSignInWithEmail);
+    const signInWithNumberPhone = useSelector(getSignInWithNumberPhone);
 
     // Handle
-    const handleSignUp = () => {
-        setIsSignUp(!isSignUp);
-        setIsHandleAuthBtn(false);
-        setIsSignInWithEmail(false);
-    };
-
-    const handleSIWithEmail = () => {
-        setIsSignInWithEmail(!isSignInWithEmail);
-    };
-
-    const handleBtnPhoneNumber = () => {
-        setIsHandleAuthBtn(!isHandleAuthBtn);
-    };
-
     const handleBtnGoogle = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
@@ -62,13 +33,12 @@ function Auth() {
                     phoneNumber: result.user.phoneNumber,
                     photoURL: result.user.photoURL,
                 };
+                dispatch(authSlice.actions.handleSetVisibilityModal(false));
                 dispatch(
-                    authSlice.actions.signInWithGoogle({
+                    authSlice.actions.handleSignInWithGoogle({
                         ...newUser,
                     }),
                 );
-                localStorage.setItem('currentUser', JSON.stringify(newUser));
-                navigate('/');
             })
             .catch((error) => {
                 console.log('SignInWithPopup: ' + error);
@@ -81,6 +51,27 @@ function Auth() {
 
     const handleBtnGithub = () => {
         console.log('Github');
+    };
+
+    const handleBtnPhoneNumber = () => {
+        dispatch(authSlice.actions.handleSignInWithNumberPhone(!signInWithNumberPhone));
+    };
+
+    const handleChangeForm = () => {
+        dispatch(authSlice.actions.handleSignInWithNumberPhone(false));
+        dispatch(
+            contentModal.unique === 1
+                ? authSlice.actions.handleSetContentModal({
+                      unique: 2,
+                      titlePage: 'Sign up',
+                      titleForm: 'Sign up for account V3D6 ',
+                      dontHaveAcc: {
+                          title: `You already have an account?`,
+                          titleLink: 'Sign in',
+                      },
+                  })
+                : authSlice.actions.handleResetContentModal(),
+        );
     };
 
     // Array of buttons
@@ -111,79 +102,37 @@ function Auth() {
         },
     ];
 
-    // Set var init for page
-    useEffect(() => {
-        if (location.pathname.includes('/signup')) {
-            document.title = `Sign up for an ${appName} account | ${appName}`;
-            setVarOfThisPage((prevState) => ({
-                ...prevState,
-                url: '/signup',
-                titlePage: 'Sign up',
-                titleForm: 'Sign up for an F8 account',
-                dontHaveAcc: {
-                    url: '/signin',
-                    title: 'Already have an account?',
-                    titleLink: 'Sign in',
-                },
-                childCpnent: <FormSignUp />,
-            }));
-        } else {
-            document.title = `Sign in to V3D8 ${appName} | ${appName}`;
-            setVarOfThisPage((prevState) => ({
-                ...prevState,
-                url: '/signin',
-                titlePage: 'Sign in',
-                titleForm: 'Sign in to V3D8',
-                dontHaveAcc: {
-                    url: '/signup',
-                    title: `Don't have an account yet?`,
-                    titleLink: 'Sign up',
-                },
-                childCpnent: <FormSignIn />,
-            }));
-        }
-    }, [location.pathname, appName]);
-
     return (
-        <FormProvider data={{ isSignInWithEmail, handleSIWithEmail }}>
-            {isHandleAuthBtn && (
-                <div className={cx('back-btn')} onClick={handleBtnPhoneNumber}>
-                    <FontAwesomeIcon icon={faChevronLeft} />
-                </div>
-            )}
+        <Fragment>
             <div className={cx('header')}>
                 <a href={process.env.REACT_APP_URL}>
                     <img className={cx('logo')} src={images.logoMini.default} alt="V3D8" />
                 </a>
-                <h1 className={cx('title')}>{varOfThisPage.titleForm}</h1>
+                <h1 className={cx('title')}>{contentModal.titleForm}</h1>
             </div>
             <div className={cx('body')}>
-                {!isHandleAuthBtn ? (
+                {!signInWithNumberPhone ? (
                     <div className={cx('main-step')}>
                         {btnsAuth.map((btn, index) => {
                             return (
-                                <AuthButton
-                                    key={index}
-                                    title={btn.title}
-                                    srcIcon={btn.iconSrc}
-                                    isSignUp={isSignUp}
-                                    onClick={btn.onClick}
-                                />
+                                <AuthButton key={index} title={btn.title} srcIcon={btn.iconSrc} onClick={btn.onClick} />
                             );
                         })}
                     </div>
                 ) : (
-                    <div className={cx('form-body')}>{varOfThisPage.childCpnent}</div>
+                    <div className={cx('form-body')}>{contentModal.unique === 1 ? <FormSignIn /> : <FormSignUp />}</div>
                 )}
                 <p className={cx('dont-have-acc')}>
-                    {varOfThisPage.dontHaveAcc.title}
-                    <Link to={varOfThisPage.dontHaveAcc.url} onClick={handleSignUp}>
-                        {` ${varOfThisPage.dontHaveAcc.titleLink}`}
-                    </Link>
+                    {contentModal.dontHaveAcc.title}
+                    <span onClick={handleChangeForm}> {contentModal.dontHaveAcc.titleLink}</span>
                 </p>
-                {isSignInWithEmail && isHandleAuthBtn && <p className={cx('forgot-password')}>Forgot your password?</p>}
+                {signInWithEmail && <p className={cx('forgot-password')}>Forgot your password?</p>}
+                <div className={cx('accept-term')}>
+                    Your continued use of this website constitutes your agreement to our{' '}
+                    <a href={`${process.env.REACT_APP_URL}/term`}>Terms of Use</a>.
+                </div>
             </div>
-        </FormProvider>
+        </Fragment>
     );
 }
 

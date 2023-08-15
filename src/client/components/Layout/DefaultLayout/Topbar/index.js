@@ -1,36 +1,42 @@
-import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
-import { currentUserSelector } from '~/shared/redux/auth'
+import { currentUserSelector } from '~/shared/redux/auth';
+import { clientIsBackHomeSelectors, clientSlice } from '~/shared/redux/client';
+import { authSlice } from '~/shared/redux/auth';
 import Search from './components/Search';
 import MyCourses from './components/MyCourses';
 import Notification from './components/Notification';
 import UserMenu from './components/UserMenu';
 import styles from './Topbar.module.scss';
 import images from '~/assets/images';
+import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Topbar() {
-    const urlApp = process.env.REACT_APP_URL;
+    const dispatch = useDispatch();
     const location = useLocation();
-    const [isBackHome, setIsBackHome] = useState(false);
-    const currentUser =
-        useSelector(currentUserSelector) || localStorage.getItem('currentUser')
-            ? JSON.parse(localStorage.getItem('currentUser'))
-            : null;
+    const urlApp = process.env.REACT_APP_URL;
+    const currentUser = useSelector(currentUserSelector);
+    const isBackHome = useSelector(clientIsBackHomeSelectors);
+
+    const handleBtnBackHome = () => {
+        dispatch(clientSlice.actions.handleBackHome(false));
+    };
+
+    const handleBtnSignIn = () => { 
+        dispatch(authSlice.actions.handleSetVisibilityModal(true));
+    }
 
     useEffect(() => {
-        if (location.pathname !== '/') {
-            setIsBackHome(true);
-        } else {
-            setIsBackHome(false);
+        if(!isBackHome && location.pathname !== '/') {
+            dispatch(clientSlice.actions.handleBackHome(true));
         }
-    }, [location.pathname]);
+    }, [])
 
     return (
         <div className={cx('wrapper')}>
@@ -38,22 +44,22 @@ function Topbar() {
                 <Link to={`${urlApp}`} className={cx('link')}>
                     <img src={images.logoMini.default} alt="logo" />
                 </Link>
-                {!isBackHome ? (
-                    <h4 className={cx('logo-heading')}>Popular Programming Courses</h4>
-                ) : (
-                    <Link to={'/'} className={cx('back-home')}>
+                {isBackHome ? (
+                    <Link to={'/'} className={cx('back-home')} onClick={handleBtnBackHome}>
                         <h4 className={cx('heading-back')}>
                             <FontAwesomeIcon icon={faChevronLeft} className={cx('icon')} />
                             <span>Back</span>
                         </h4>
                     </Link>
+                ) : (
+                    <h4 className={cx('logo-heading')}>Popular Programming Courses</h4>
                 )}
             </div>
             <div className={cx('body', 'item')}>
                 <Search />
             </div>
             <div className={cx('actions', 'item')}>
-                {currentUser !== null ? (
+                {currentUser ? (
                     <>
                         <div>
                             <MyCourses />
@@ -62,13 +68,13 @@ function Topbar() {
                             <Notification />
                         </div>
                         <div className={cx('avatar-wrapper')}>
-                            <UserMenu />
+                            <UserMenu srcAvatar={currentUser ? currentUser.photoURL : ''} />
                         </div>
                     </>
                 ) : (
-                    <Link to={'/signin'} className={cx('login-btn')}>
+                    <div className={cx('login-btn')} onClick={handleBtnSignIn}>
                         Sign in
-                    </Link>
+                    </div>
                 )}
             </div>
         </div>
