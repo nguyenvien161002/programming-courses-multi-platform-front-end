@@ -10,6 +10,13 @@ const initialState = {
             titleLink: 'Sign up',
         },
     },
+    contentFormSignIn: {
+        value: ['', ''],
+        type: ['text', 'number'],
+        name: ['phone', 'phone_code'],
+        placeholder: ['Phone number', 'Enter the confirmation code'],
+        labelGroup: ['Phone number', 'Sign in with email'],
+    },
     currentUser: null,
     signInWithEmail: false,
     visibilityMoDal: false,
@@ -34,6 +41,12 @@ const authSlice = createSlice({
         },
         handleResetContentModal: (state) => {
             state.contentModal = initialState.contentModal;
+        },
+        handleSetContentFormSignIn: (state, action) => {
+            state.contentFormSignIn = action.payload;
+        },
+        handleResetContentFormSignIn: (state) => {
+            state.contentFormSignIn = initialState.contentFormSignIn;
         },
         handleSetVisibilityModal: (state, action) => {
             state.visibilityMoDal = action.payload;
