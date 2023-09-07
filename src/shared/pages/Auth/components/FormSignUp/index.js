@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import classNames from 'classnames/bind';
 
 import { schemasSUWE, schemasSUWP } from '~/shared/schemas';
+import { authSlice, getContentFormAuth, getSignInWithEmail } from '~/shared/redux/auth';
 import FormControl from '../FormControl';
 import FormInput from '../FormInput';
 import SubmitBtnAuth from '../SubmitBtnAuth';
@@ -11,65 +12,39 @@ import styles from './FormSignUp.module.scss';
 const cx = classNames.bind(styles);
 
 function FormSignUp() {
-    const valPhNumber = useMemo(
-        () => ({
-            type: ['text', 'number'],
-            name: ['phone', 'phone_code'],
-            placeholder: ['Phone number', 'Enter the confirmation code'],
-            labelGroup: ['Phone number', 'Sign up with email'],
-        }),
-        [],
-    );
-    const valEmailAddr = useMemo(
-        () => ({
-            type: ['email', 'password'],
-            name: ['email', 'password'],
-            placeholder: ['Email address', 'Enter the password'],
-            labelGroup: ['Email', 'Sign up with your phone number'],
-        }),
-        [],
-    );
-
-    const [isType, setIsType] = useState(valPhNumber.type);
-    const [isName, setIsName] = useState(valPhNumber.name);
-    const [isValue, setIsValue] = useState('');
-    const [isPlaceholder, setIsPlaceholder] = useState(valPhNumber.placeholder);
-    const [isLabelGroup, setIsLabelGroup] = useState(valPhNumber.labelGroup);
-    const [isSignInWithEmail, setIsSignInWithEmail] = useState(false);
+    const dispatch = useDispatch();
+    const isSignInWithEmail = useSelector(getSignInWithEmail);
+    const { value, type, name, placeholder, labelGroup } = useSelector(getContentFormAuth);
 
     const handleLabelRight = () => {
         resetForm();
-        setIsSignInWithEmail(!isSignInWithEmail);
+        dispatch(authSlice.actions.handleSignInWithEmail(!isSignInWithEmail));
+        dispatch(
+            !isSignInWithEmail
+                ? authSlice.actions.handleSetContentFormAuth({
+                      value: ['', ''],
+                      type: ['email', 'password'],
+                      name: ['email', 'password'],
+                      placeholder: ['Email address', 'Enter the password'],
+                      labelGroup: ['Email', 'Sign in with your phone number'],
+                  })
+                : authSlice.actions.handleResetContentFormAuth(),
+        );
     };
-
-    useEffect(() => {
-        setIsValue('');
-        if (isSignInWithEmail) {
-            setIsName(valEmailAddr.name);
-            setIsType(valEmailAddr.type);
-            setIsPlaceholder(valEmailAddr.placeholder);
-            setIsLabelGroup(valEmailAddr.labelGroup);
-        } else {
-            setIsName(valPhNumber.name);
-            setIsType(valPhNumber.type);
-            setIsPlaceholder(valPhNumber.placeholder);
-            setIsLabelGroup(valPhNumber.labelGroup);
-        }
-    }, [isSignInWithEmail, valEmailAddr, valPhNumber]);
 
     const { values, errors, touched, isValid, dirty, resetForm, handleSubmit, handleBlur, handleChange } = useFormik({
         initialValues: {
             display_name: '',
-            [isName[0]]: '',
-            [isName[1]]: '',
+            [name[0]]: '',
+            [name[1]]: '',
             ...(isSignInWithEmail ? { email_code: '' } : {}),
         },
         validationSchema: isSignInWithEmail ? schemasSUWE : schemasSUWP,
         onSubmit: (values) => {
             values = {
                 display_name: values.display_name,
-                [isName[0]]: values[isName[0]],
-                [isName[1]]: values[isName[1]],
+                [name[0]]: values[name[0]],
+                [name[1]]: values[name[1]],
                 ...(isSignInWithEmail ? { email_code: values.email_code } : {}),
             };
             console.log(JSON.stringify(values, null, 2));
@@ -80,7 +55,7 @@ function FormSignUp() {
         <form onSubmit={handleSubmit} autoComplete="off" encType="multipart/form-data">
             <FormControl>
                 <FormInput
-                    value={values.display_name || isValue}
+                    value={values.display_name || value[0]}
                     type={'text'}
                     placeholder={'Your first and last name'}
                     name={'display_name'}
@@ -103,33 +78,31 @@ function FormSignUp() {
             </FormControl>
             <FormControl>
                 <FormInput
-                    value={values[isName[0]] || isValue}
-                    type={isType[0]}
-                    placeholder={isPlaceholder[0]}
-                    name={isName[0]}
+                    value={values[name[0]] || value[0]}
+                    type={type[0]}
+                    placeholder={placeholder[0]}
+                    name={name[0]}
                     onBlur={handleBlur}
                     onChange={handleChange}
                     withStyles={{
                         labelGroup: {
-                            left: isLabelGroup[0],
-                            right: isLabelGroup[1],
+                            left: labelGroup[0],
+                            right: labelGroup[1],
                             handle: handleLabelRight,
                         },
                         insideInputTop: !isSignInWithEmail,
                         insideInputBottom: false,
                     }}
-                    isValid={!!touched[isName[0]] ? errors[isName[0]] !== undefined : false}
+                    isValid={!!touched[name[0]] ? errors[name[0]] !== undefined : false}
                 />
-                {errors[isName[0]] && touched[isName[0]] && (
-                    <span className={cx('message-error')}>{errors[isName[0]]}</span>
-                )}
+                {errors[name[0]] && touched[name[0]] && <span className={cx('message-error')}>{errors[name[0]]}</span>}
             </FormControl>
             <FormControl>
                 <FormInput
-                    value={values[isName[1]]|| isValue}
-                    type={isType[1]}
-                    placeholder={isPlaceholder[1]}
-                    name={isName[1]}
+                    value={values[name[1]] || value[0]}
+                    type={type[1]}
+                    placeholder={placeholder[1]}
+                    name={name[1]}
                     onBlur={handleBlur}
                     onChange={handleChange}
                     withStyles={{
@@ -137,16 +110,14 @@ function FormSignUp() {
                         insideInputTop: false,
                         insideInputBottom: !isSignInWithEmail,
                     }}
-                    isValid={!!touched[isName[1]] ? errors[isName[1]] !== undefined : false}
-                    disabledSendCode={!!touched[isName[0]] ? errors[isName[0]] !== undefined : true}
+                    isValid={!!touched[name[1]] ? errors[name[1]] !== undefined : false}
+                    disabledSendCode={!!touched[name[0]] ? errors[name[0]] !== undefined : true}
                 />
-                {errors[isName[1]] && touched[isName[1]] && (
-                    <span className={cx('message-error')}>{errors[isName[1]]}</span>
-                )}
+                {errors[name[1]] && touched[name[1]] && <span className={cx('message-error')}>{errors[name[1]]}</span>}
             </FormControl>
             <FormControl display={!isSignInWithEmail}>
                 <FormInput
-                    value={values.email_code || isValue}
+                    value={values.email_code || value[0]}
                     type={'number'}
                     placeholder={'Enter the confirmation code'}
                     name={'email_code'}

@@ -1,0 +1,89 @@
+.wrapper {
+    --wrapper-height: 50px;
+    align-items: center;
+    background-color: #29303b;
+    display: flex;
+    height: var(--wrapper-height);
+    position: relative;
+    z-index: 1;
+
+    .back-btn {
+        cursor: pointer;
+        display: flex;
+        height: var(--wrapper-height);
+        transition: background-color .2s linear;
+        width: 60px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, .1);
+        }
+
+        .icon {
+            color: var(--white-color);
+            font-size: 1.6rem;
+            margin: auto;
+        }
+    }
+
+    .logo {
+        margin-left: 8px;
+        position: relative;
+        top: 1px;
+
+        img {
+            height: 30px;
+        }
+    }
+
+    .course-title {
+        word-wrap: break-word;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        color: var(--white-color);
+        display: -webkit-box;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-left: 1.6rem;
+        overflow: hidden;
+    }
+
+    .actions {
+        align-items: center;
+        display: flex;
+        margin-left: auto;
+
+        .progress-bar {
+            align-items: center;
+            display: flex;
+            margin-right: 2.4rem;
+
+            .completed-msg {
+                color: var(--white-color);
+                font-size: 1.3rem;
+                margin-left: .6rem;
+
+                .num {
+                    font-size: 1.2rem;
+                    -webkit-font-feature-settings: "tnum";
+                    font-feature-settings: "tnum";
+                    font-variant-numeric: tabular-nums;
+                }
+            }
+        }
+
+        .action-btn {
+            background-color: transparent;
+            color: var(--white-color);
+            font-size: 1.4rem;
+            margin-right: 2.4rem;
+            opacity: .8;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            .icon {
+                margin-right: .6rem;
+            }
+        }
+    }
+}

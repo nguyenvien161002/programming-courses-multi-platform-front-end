@@ -10,7 +10,7 @@ const initialState = {
             titleLink: 'Sign up',
         },
     },
-    contentFormSignIn: {
+    contentFormAuth: {
         value: ['', ''],
         type: ['text', 'number'],
         name: ['phone', 'phone_code'],
@@ -42,11 +42,11 @@ const authSlice = createSlice({
         handleResetContentModal: (state) => {
             state.contentModal = initialState.contentModal;
         },
-        handleSetContentFormSignIn: (state, action) => {
-            state.contentFormSignIn = action.payload;
+        handleSetContentFormAuth: (state, action) => {
+            state.contentFormAuth = action.payload;
         },
-        handleResetContentFormSignIn: (state) => {
-            state.contentFormSignIn = initialState.contentFormSignIn;
+        handleResetContentFormAuth: (state) => {
+            state.contentFormAuth = initialState.contentFormAuth;
         },
         handleSetVisibilityModal: (state, action) => {
             state.visibilityMoDal = action.payload;

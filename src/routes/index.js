@@ -1,4 +1,4 @@
-import { DefaultLayoutClient } from '~/client/components/Layout';
+import { DefaultLayoutClient, DefaultLayoutLearning } from '~/client/components/Layout';
 import { DefaultLayoutAdmin } from '~/admin/components/Layout';
 import Category from '~/admin/pages/Category';
 import CoursesAdmin from '~/admin/pages/Courses';
@@ -25,7 +25,7 @@ const publicRoutes = [
     { path: '/courses', component: Courses, layout: DefaultLayoutClient },
     { path: '/courses/:slug', component: CourseDetail, layout: DefaultLayoutClient },
     { path: '/blog', component: Blog, layout: DefaultLayoutClient },
-    { path: '/learning', component: Learning },
+    { path: '/learning', component: Learning, layout: DefaultLayoutLearning },
     // ADMIN
     { path: '/admin/', component: Dashboard, layout: DefaultLayoutAdmin },
     { path: '/admin/courses', component: CoursesAdmin, layout: DefaultLayoutAdmin },

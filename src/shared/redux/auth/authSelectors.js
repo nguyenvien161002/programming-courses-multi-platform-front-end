@@ -1,7 +1,7 @@
 const currentUserSelector = (state) => state.auth.currentUser;
 const visibilityMoDal = (state) => state.auth.visibilityMoDal;
 const getContentModal = (state) => state.auth.contentModal;
-const getContentFormSignIn = (state) => state.auth.contentFormSignIn;
+const getContentFormAuth = (state) => state.auth.contentFormAuth;
 const getSignInWithEmail = (state) => state.auth.signInWithEmail;
 const getSignInWithNumberPhone = (state) => state.auth.signInWithNumberPhone;
 
@@ -11,5 +11,5 @@ export {
     getContentModal,
     getSignInWithEmail,
     getSignInWithNumberPhone,
-    getContentFormSignIn,
+    getContentFormAuth,
 };

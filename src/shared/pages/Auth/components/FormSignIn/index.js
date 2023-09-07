@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import classNames from 'classnames/bind';
 
 import { schemasSIWP, schemasSIWE } from '~/shared/schemas';
-import { authSlice, getContentFormSignIn, getSignInWithEmail } from '~/shared/redux/auth';
+import { authSlice, getContentFormAuth, getSignInWithEmail } from '~/shared/redux/auth';
 import FormInput from '../FormInput';
 import FormControl from '../FormControl';
 import SubmitBtnAuth from '../SubmitBtnAuth';
@@ -14,21 +14,21 @@ const cx = classNames.bind(styles);
 function FormSignIn() {
     const dispatch = useDispatch();
     const isSignInWithEmail = useSelector(getSignInWithEmail);
-    const { value, type, name, placeholder, labelGroup } = useSelector(getContentFormSignIn);
+    const { value, type, name, placeholder, labelGroup } = useSelector(getContentFormAuth);
 
     const handleLabelRight = () => {
         resetForm();
         dispatch(authSlice.actions.handleSignInWithEmail(!isSignInWithEmail));
         dispatch(
             !isSignInWithEmail
-                ? authSlice.actions.handleSetContentFormSignIn({
+                ? authSlice.actions.handleSetContentFormAuth({
                       value: ['', ''],
                       type: ['email', 'password'],
                       name: ['email', 'password'],
                       placeholder: ['Email address', 'Enter the password'],
                       labelGroup: ['Email', 'Sign in with your phone number'],
                   })
-                : authSlice.actions.handleResetContentFormSignIn(),
+                : authSlice.actions.handleResetContentFormAuth(),
         );
     };
 
