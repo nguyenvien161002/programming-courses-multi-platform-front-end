@@ -21,6 +21,7 @@ const initialState = {
     signInWithEmail: false,
     visibilityMoDal: false,
     signInWithNumberPhone: false,
+    countryDialCode: '+84',
 };
 
 const authSlice = createSlice({
@@ -54,6 +55,9 @@ const authSlice = createSlice({
         handleSignInWithNumberPhone: (state, action) => {
             state.signInWithNumberPhone = action.payload;
         },
+        handleSetCountryDialCode: (state, action) => {
+            state.countryDialCode = action.payload;
+        }
     },
 });
 

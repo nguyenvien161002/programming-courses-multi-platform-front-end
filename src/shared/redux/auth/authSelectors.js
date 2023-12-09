@@ -4,6 +4,7 @@ const getContentModal = (state) => state.auth.contentModal;
 const getContentFormAuth = (state) => state.auth.contentFormAuth;
 const getSignInWithEmail = (state) => state.auth.signInWithEmail;
 const getSignInWithNumberPhone = (state) => state.auth.signInWithNumberPhone;
+const getCountryCodeSelectors = (state) => state.auth.countryDialCode;
 
 export {
     currentUserSelector,
@@ -12,4 +13,5 @@ export {
     getSignInWithEmail,
     getSignInWithNumberPhone,
     getContentFormAuth,
+    getCountryCodeSelectors
 };

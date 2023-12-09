@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 
 import Container from '~/client/components/Container';
@@ -10,6 +11,25 @@ import images from '~/assets/images';
 const cx = classNames.bind(styles);
 
 function Courses() {
+
+    // const [courses, setCourses] = useState([]);
+    // const [loading, setLoading] = useState(true);
+
+    // useEffect(() => {
+    //     fetch('https://api-gateway.fullstack.edu.vn/api/combined-courses')
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             setCourses(data);
+    //             setLoading(false);
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error fetching data:', error);
+    //             setLoading(false);
+    //         });
+    // }, []);
+
+    // console.log(courses);
+
     const proCourses = [
         {
             id: 15,

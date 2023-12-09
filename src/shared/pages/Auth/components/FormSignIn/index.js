@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import classNames from 'classnames/bind';
 
 import { schemasSIWP, schemasSIWE } from '~/shared/schemas';
-import { authSlice, getContentFormAuth, getSignInWithEmail } from '~/shared/redux/auth';
+import { authSlice, getContentFormAuth, getSignInWithEmail, getCountryCodeSelectors } from '~/shared/redux/auth';
 import FormInput from '../FormInput';
 import FormControl from '../FormControl';
 import SubmitBtnAuth from '../SubmitBtnAuth';
@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
 function FormSignIn() {
     const dispatch = useDispatch();
     const isSignInWithEmail = useSelector(getSignInWithEmail);
+    const countryCode = useSelector(getCountryCodeSelectors);
     const { value, type, name, placeholder, labelGroup } = useSelector(getContentFormAuth);
 
     const handleLabelRight = () => {
@@ -40,7 +41,7 @@ function FormSignIn() {
         validationSchema: isSignInWithEmail ? schemasSIWE : schemasSIWP,
         onSubmit: (values) => {
             values = {
-                [name[0]]: values[name[0]],
+                [name[0]]: isSignInWithEmail ? values[name[0]] : countryCode + values[name[0]],
                 [name[1]]: values[name[1]],
             };
             console.log(JSON.stringify(values, null, 2));

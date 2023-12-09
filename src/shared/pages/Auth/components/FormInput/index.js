@@ -1,8 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
 import styles from './FormInput.module.scss';
+import CountryCodes from '../CountryCodes';
 
 const cx = classNames.bind(styles);
 
@@ -23,14 +22,7 @@ function FormInput({ withStyles, isValid, disabledSendCode, ...inputProps }) {
                 </div>
             )}
             <div className={cx('input-wrapper', isValid ? 'input-error' : '')}>
-                {withStyles.insideInputTop && (
-                    <div className={cx('inside-input')}>
-                        <div className={cx('label')}>
-                            <span>VN +84</span>
-                            <FontAwesomeIcon className={cx('icon')} icon={faChevronDown} />
-                        </div>
-                    </div>
-                )}
+                {withStyles.insideInputTop && <CountryCodes />}
                 <input {...inputProps} />
                 {withStyles.insideInputBottom && (
                     <div className={cx('send-code-btn', disabledSendCode ? 'disabled' : '')}>

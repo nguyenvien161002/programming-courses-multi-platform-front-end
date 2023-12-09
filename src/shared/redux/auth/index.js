@@ -5,5 +5,6 @@ export {
     getContentModal,
     getSignInWithEmail,
     getSignInWithNumberPhone,
-    getContentFormAuth
+    getContentFormAuth,
+    getCountryCodeSelectors
 } from './authSelectors';

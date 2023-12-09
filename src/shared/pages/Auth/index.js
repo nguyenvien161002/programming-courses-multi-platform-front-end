@@ -64,7 +64,7 @@ function Auth() {
                 ? authSlice.actions.handleSetContentModal({
                       unique: 2,
                       titlePage: 'Sign up',
-                      titleForm: 'Sign up for account V3D6 ',
+                      titleForm: 'Sign up for account V3D8',
                       dontHaveAcc: {
                           title: `You already have an account?`,
                           titleLink: 'Sign in',
