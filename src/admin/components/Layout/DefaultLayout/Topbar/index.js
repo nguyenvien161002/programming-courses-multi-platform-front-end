@@ -6,7 +6,7 @@ import classNames from 'classnames/bind';
 import { SidebarContext } from '../SidebarContext';
 import { Messenger, Notification, UserMenu } from './components/Tippy';
 import styles from './Topbar.module.scss';
-import Search from './components/Search';
+import Search from '~/admin/components/Search';
 
 const cx = classNames.bind(styles);
 
@@ -20,7 +20,7 @@ function Topbar() {
                     <FontAwesomeIcon icon={faBars} />
                 </div>
                 <div className={cx('box-search')}>
-                    <Search />
+                    <Search widthSearch={'42rem'} />
                 </div>
             </div>
             <div className={cx('actions')}>

@@ -6,7 +6,7 @@ import MsgItem from '../MsgItem';
 
 const cx = classNames.bind(styles);
 
-function Content() {
+function Content({ handleClickOpenMsg }) {
     return (
         <div className={cx('wrapper')} style={{ '--width-tippy': '34rem' }}>
             <header>
@@ -26,7 +26,9 @@ function Content() {
             </div>
             <hr />
             <footer>
-                <Link to={"/admin/messenger"} className={cx('btn-open-msg')}>Open Messenger</Link>
+                <Link to={'/admin/messenger'} onClick={handleClickOpenMsg} className={cx('btn-open-msg')}>
+                    Open Messenger
+                </Link>
             </footer>
         </div>
     );

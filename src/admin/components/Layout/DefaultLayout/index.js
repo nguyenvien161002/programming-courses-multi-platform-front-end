@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import classNames from 'classnames/bind';
@@ -12,6 +13,7 @@ import styles from './DefaultLayout.module.scss';
 const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
+    const location = useLocation();
     const [isMinimizeSidebar, setIsMinimizeSidebar] = useState(false);
 
     const toggleSidebar = () => {
@@ -26,7 +28,7 @@ function DefaultLayout({ children }) {
                     <Topbar />
                     <div className={cx('content')}>
                         {children}
-                        <div className={cx('copyright')}>
+                        <div className={cx(['copyright', `${location.pathname === '/admin/messenger' ? 'd-none' : ''}`])}>
                             2023 © Influence - Designed by Nguyen Vien{' '}
                             <FontAwesomeIcon className={cx('icon-heart')} icon={faHeart} />
                         </div>

@@ -3,8 +3,9 @@ import { Fragment, useContext } from 'react';
 import {
     faHouse, faLightbulb, faUsers, faCartShopping,
     faFolder, faChartBar, faGear, faHeadset,
-    faBook, faBell, faRightFromBracket,
+    faBook, faBell, faRightFromBracket
 } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
 import classNames from 'classnames/bind';
 
 import { SidebarContext } from '../SidebarContext';
@@ -54,6 +55,12 @@ function Sidebar() {
             icon: faChartBar,
             to: '/admin/reports',
             unique: '/reports',
+        },
+        {
+            title: 'Messenger',
+            icon: faFacebookMessenger,
+            to: '/admin/messenger',
+            unique: '/messenger',
         },
         {
             title: 'Settings',

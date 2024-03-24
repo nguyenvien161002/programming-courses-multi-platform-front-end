@@ -25,13 +25,13 @@ function TippyMessenger() {
             render={(attrs) => (
                 <PopperWrapper>
                     <div className={cx('wrapper-user-menu')} tabIndex="-1" {...attrs}>
-                        <Content />
+                        <Content handleClickOpenMsg={hide} />
                     </div>
                 </PopperWrapper>
             )}
         >
             <div className={cx('action-item')}>
-                <FontAwesomeIcon icon={faFacebookMessenger} onClick={visible ? hide : show}/>
+                <FontAwesomeIcon icon={faFacebookMessenger} onClick={visible ? hide : show} />
             </div>
         </Tippy>
     );
